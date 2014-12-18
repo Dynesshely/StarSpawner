@@ -101,6 +101,10 @@ namespace conconcon_tri_buter
             for (int i = 0; i < totalDay; ++i)
                 if ((bool)existed[i]) targets.Add(sdt.AddDays(i));
             string tar_dates = "target dates:\n";
+            foreach(DateTime dt in targets)
+            {
+
+            }
             foreach (DateTime dt in targets)
             {
                 ch.Output($"date: {dt:yyyy-MM-dd} | start commit!\n", ConsoleColor.Cyan);
