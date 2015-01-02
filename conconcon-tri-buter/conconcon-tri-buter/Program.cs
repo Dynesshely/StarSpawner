@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+
 using ch = conconcon_tri_buter.ConsoleHelper;
 
 namespace conconcon_tri_buter
@@ -46,15 +49,6 @@ namespace conconcon_tri_buter
         }
 
         /// <summary>
-        /// 带密度的提交
-        /// </summary>
-        /// <param name="lively_message">是否使用拟真消息</param>
-        private static void Density_Contribute(bool lively_message)
-        {
-            
-        }
-
-        /// <summary>
         /// 简单消息评论
         /// </summary>
         /// <param name="lively_message">是否启用拟真消息</param>
@@ -78,9 +72,39 @@ namespace conconcon_tri_buter
             {
                 ch.Output($"{finishedDays}.\t| date: {dt:yyyy-MM-dd} | start commit!", ConsoleColor.Blue);
                 for (int i = 1; i <= (random ? rand.Next(3, 41) : cons); ++i)
-                    generatefile(dt, lively_message);
+                    generatefile(dt, lively_message, false);
                 dt = dt.AddDays(1);
                 ++finishedDays;
+            }
+        }
+
+        /// <summary>
+        /// 带密度的提交
+        /// </summary>
+        /// <param name="lively_message">是否使用拟真消息</param>
+        private static void Density_Contribute(bool lively_message)
+        {
+            DateTime sdt = ch.GetDate("Input start date (yyyy-MM-dd): ", '-'),
+                edt = ch.GetDate("Input end date (yyyy-MM-dd): ", '-');
+            double density = double.Parse(ch.GetInput("Input density (0 - 1): "));
+            int maxi = int.Parse(ch.GetInput("Input maxi commit one day : "));
+            int totalDay = (int)(edt - sdt).TotalDays, needDay = (int)(totalDay * density);
+            ArrayList existed = new()
+            {
+                Capacity = totalDay
+            };
+            Math math = new();
+            for (int i = 0; i < totalDay; ++i) existed.Add(false);
+            for (int i = 1; i <= needDay; ++i)
+                existed[(int)math.AverageRandom(0, totalDay)] = true;
+            List<DateTime> targets = new();
+            for (int i = 0; i < totalDay; ++i)
+                if ((bool)existed[i]) targets.Add(sdt.AddDays(i));
+            foreach (DateTime dt in targets)
+            {
+                ch.Output($"date: {dt:yyyy-MM-dd} | start commit!", ConsoleColor.Cyan);
+                for(int i = 1; i <= maxi; ++ i)
+                    generatefile(dt.AddHours(rand.Next(1, 23)), lively_message, false);
             }
         }
 
@@ -89,7 +113,7 @@ namespace conconcon_tri_buter
         /// </summary>
         /// <param name="dt">日期</param>
         /// <param name="lively_message">是否启用拟真消息</param>
-        private static void generatefile(DateTime dt, bool lively_message)
+        private static void generatefile(DateTime dt, bool lively_message, bool commit_when_delete)
         {
             string fn = $"{Environment.CurrentDirectory}\\{randomname()}.txt";
 
@@ -110,8 +134,11 @@ namespace conconcon_tri_buter
 
             File.Delete(fn);
 
-            if (lively_message) specialCommit(dt, message);
-            else normalCommit(dt);
+            if (commit_when_delete)
+            {
+                if (lively_message) specialCommit(dt, message);
+                else normalCommit(dt);
+            }
 
             Console.WriteLine($"delete: {Path.GetFileName(fn)}");
         }
