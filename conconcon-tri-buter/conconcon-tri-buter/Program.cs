@@ -102,7 +102,7 @@ namespace conconcon_tri_buter
                 if ((bool)existed[i]) targets.Add(sdt.AddDays(i));
             foreach (DateTime dt in targets)
             {
-                ch.Output($"date: {dt:yyyy-MM-dd} | start commit!", ConsoleColor.Cyan);
+                ch.Output($"date: {dt:yyyy-MM-dd} | start commit!\n", ConsoleColor.Cyan);
                 for(int i = 1; i <= maxi; ++ i)
                     generatefile(dt.AddHours(rand.Next(1, 23)), lively_message, false);
             }
