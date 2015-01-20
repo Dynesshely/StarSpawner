@@ -70,7 +70,7 @@ namespace conconcon_tri_buter
             int finishedDays = 1;
             while (dt.Year != now.Year || dt.Month != now.Month || dt.Day != now.Day)
             {
-                ch.Output($"{finishedDays}.\t| date: {dt:yyyy-MM-dd} | start commit!", ConsoleColor.Blue);
+                ch.Output($"{finishedDays}.\t| date: {dt:yyyy-MM-dd} | start commit!\n", ConsoleColor.Blue);
                 for (int i = 1; i <= (random ? rand.Next(3, 41) : cons); ++i)
                     generatefile(dt, lively_message, false);
                 dt = dt.AddDays(1);
