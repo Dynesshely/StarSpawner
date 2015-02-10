@@ -109,7 +109,7 @@ namespace conconcon_tri_buter
             List<DateTime> targets = new();
             for (int i = 0; i < totalDay; ++i)
                 if ((bool)existed[i]) targets.Add(sdt.AddDays(i));
-            string tar_dates = "target dates:\n";
+            string tar_dates = "\ntarget dates:\n";
             foreach(DateTime dt in targets)
                 tar_dates += $"{dt:yyyy-MM-dd} ";
             ch.Output($"{tar_dates}\n\n", ConsoleColor.Green);
