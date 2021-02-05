@@ -105,10 +105,7 @@ namespace conconcon_tri_buter
             Console.WriteLine($"delete: {Path.GetFileName(fn)}");
         }
 
-        private static string get_lively_message()
-        {
-
-        }
+        private static string get_lively_message() => LivelyMessage.GetLivelyMessage();
 
         private static void normalCommit(DateTime dt)
         {
