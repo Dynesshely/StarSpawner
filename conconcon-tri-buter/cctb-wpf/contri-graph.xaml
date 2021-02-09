@@ -4,17 +4,29 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:cctb_wpf"
-             mc:Ignorable="d" Width="960" Height="300"
+             mc:Ignorable="d" Width="942" Height="180"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Canvas x:Name="rulerleft" Width="20" HorizontalAlignment="Left" Margin="0,20,0,0">
-            <TextBlock x:Name="r_7" Text="日" Foreground="WhiteSmoke"/>
-            <TextBlock x:Name="r_2" Text="二" Foreground="WhiteSmoke"/>
-            <TextBlock x:Name="r_4" Text="四" Foreground="WhiteSmoke"/>
-            <TextBlock x:Name="r_6" Text="六" Foreground="WhiteSmoke"/>
+        <Canvas x:Name="ruler_left" Width="15" HorizontalAlignment="Left" Margin="0,20,0,0">
+            <TextBlock x:Name="r_7" Text="日" Foreground="WhiteSmoke"
+                       Canvas.Right="0" Tag="7"/>
+            <TextBlock x:Name="r_2" Text="二" Foreground="WhiteSmoke"
+                       Canvas.Right="0" Tag="2"/>
+            <TextBlock x:Name="r_4" Text="四" Foreground="WhiteSmoke"
+                       Canvas.Right="0" Tag="4"/>
+            <TextBlock x:Name="r_6" Text="六" Foreground="WhiteSmoke"
+                       Canvas.Right="0" Tag="6"/>
         </Canvas>
-        <Canvas x:Name="ruler_top" Height="20" VerticalAlignment="Top" Margin="20,0,0,0"/>
-        <Canvas x:Name="graph" Margin="20,20,0,0">
+        <Canvas x:Name="rulerright" Width="15" HorizontalAlignment="Right" Margin="0,20,0,0">
+            <TextBlock x:Name="rr_1" Text="一" Foreground="WhiteSmoke"
+                       Tag="1"/>
+            <TextBlock x:Name="rr_3" Text="三" Foreground="WhiteSmoke"
+                       Tag="3"/>
+            <TextBlock x:Name="rr_5" Text="五" Foreground="WhiteSmoke"
+                       Tag="5"/>
+        </Canvas>
+        <Canvas x:Name="ruler_top" Height="20" VerticalAlignment="Top" Margin="20,0,20,0"/>
+        <Canvas x:Name="graph" Margin="20,20,20,0">
 
         </Canvas>
     </Grid>

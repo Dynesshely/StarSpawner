@@ -6,17 +6,45 @@
         xmlns:local="clr-namespace:cctb_wpf"
         mc:Ignorable="d" ResizeMode="CanMinimize"
         WindowStartupLocation="CenterScreen"
-        Title="cctb-wpf" Height="600" Width="960">
+        Title="cctb-wpf" Height="600" Width="980">
 
     <Grid>
-        <Image Source="/back.jpg" Stretch="UniformToFill" Margin="-10"
-               MouseDown="Image_MouseDown">
+        <Image Source="/back.jpg" Stretch="UniformToFill" Margin="-10">
             <Image.Effect>
                 <BlurEffect Radius="10" KernelType="Gaussian"/>
             </Image.Effect>
         </Image>
-        <local:ContriGraph x:Name="contriGraph" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20"
-                Content="初始化" Click="Button_Click_Init" Style="{StaticResource BtnInfoStyle}"/>
+        <Border Background="Black" Opacity="0.3"/>
+        <Border Margin="0,180,0,0" Background="Black" Opacity="0.000001" MouseDown="Image_MouseDown"/>
+        <local:ContriGraph x:Name="contriGraph" Margin="5,10" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Grid Width="250" Margin="20,180,0,80" HorizontalAlignment="Left">
+            <Border Background="Navy" Opacity="0.5" CornerRadius="10">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="15"/>
+                </Border.Effect>
+            </Border>
+            <TextBlock Text="已选择" Foreground="WhiteSmoke" Margin="10"/>
+            <ScrollViewer Margin="10,30,10,10">
+                <ListBox x:Name="SelectedDates" Margin="0,0,10,0"
+                     Background="Transparent" BorderThickness="0"
+                     Foreground="WhiteSmoke">
+
+                </ListBox>
+            </ScrollViewer>
+        </Grid>
+        <Grid Margin="310,180,20,80">
+            <Border Background="DarkCyan" Opacity="0.5" CornerRadius="10">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="15"/>
+                </Border.Effect>
+            </Border>
+            
+        </Grid>
+        <Button HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                Margin="20" Height="40" FontSize="16" Content="初始化"
+                Click="Button_Click_Init" Style="{StaticResource BtnInfoStyle}"/>
+        <Button HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                Margin="120,0,0,20" Height="40" FontSize="16"
+                Content="清空" Style="{StaticResource BtnOptionStyle}"/>
     </Grid>
 </Window>

@@ -20,14 +20,30 @@ namespace cctb_wpf
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Dictionary<DateTime, string> selections = new();
+
         public MainWindow()
         {
             InitializeComponent();
+            contriGraph.SelectEvent += (x) =>
+            {
+                SelectedDates.Items.Add(x.ToString("yyyy-MM-dd tt"));
+            };
+            contriGraph.UnSelectEvent += (x) =>
+            {
+                SelectedDates.Items.Remove(x.ToString("yyyy-MM-dd tt"));
+            };
+            KeyDown += (_, y) =>
+            {
+                if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.A))
+                    contriGraph.SelectAll();
+            };
         }
 
         private void Button_Click_Init(object sender, RoutedEventArgs e)
         {
             contriGraph.Init();
+            SelectedDates.Items.Clear();
         }
 
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
