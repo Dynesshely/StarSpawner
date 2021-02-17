@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace conconcon_tri_buter
 {
@@ -8,6 +9,9 @@ namespace conconcon_tri_buter
         {
             Console.WriteLine("Hello World!");
             Console.WriteLine($"{Environment.CurrentDirectory}");
+
+            Process process = new();
+
         }
     }
 }
