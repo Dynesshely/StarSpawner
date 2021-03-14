@@ -184,7 +184,7 @@ namespace conconcon_tri_buter
             int length = 8;
             string rst = "";
             for (int i = 1; i <= length; ++i)
-                rst += rand.Next(0, 1) == 0 ? ((char)('A' + rand.Next(0, 25))).ToString() : ((char)('a' + rand.Next(0, 25))).ToString();
+                rst += rand.Next(0, 2) == 0 ? ((char)('A' + rand.Next(0, 25))).ToString() : ((char)('a' + rand.Next(0, 25))).ToString();
             return rst;
         }
     }
