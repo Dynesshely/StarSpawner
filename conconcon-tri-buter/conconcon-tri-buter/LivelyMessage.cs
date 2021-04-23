@@ -146,7 +146,7 @@ namespace conconcon_tri_buter
 
             #region 生成 scope
             if (isScopeInit)
-                template = template.Replace("%scope%", RandFileName());
+                template = template.Replace("%scope%", $"({RandFileName()})");
             else template = template.Replace("%scope%", "");
             #endregion
 
