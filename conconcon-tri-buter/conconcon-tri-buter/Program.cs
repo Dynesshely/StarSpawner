@@ -50,9 +50,9 @@ namespace conconcon_tri_buter
                 anyException = true;
             }
             if (anyException) goto start;
-            ch.Output("\nStart Pushing ...\n", ConsoleColor.DarkMagenta);
+            ch.Output("\nStart Pushing ...", ConsoleColor.DarkMagenta);
             if (push_afterAll) runGit(" push");
-            ch.Output("Push finished !", ConsoleColor.DarkMagenta);
+            ch.Output("\nPush finished !", ConsoleColor.DarkMagenta);
             ch.GetInput("\n\nFinished! Go to your GitHub to see 13 !");
         }
 
