@@ -164,7 +164,7 @@ namespace conconcon_tri_buter
                 subject += $" {RandItem(words_src)}" + (rand.Next(0, 7) >= 6 ? " %fn%" : "");
             if (isFileNameInit)
                 while(subject.IndexOf("%fn%") != -1)
-                    subject = subject.Replace("%fn%", $" {RandFileName()}");
+                    subject = subject.Replace("%fn%", $"{RandFileName()}");
             template = template.Replace("%subject%", subject);
             #endregion
 
