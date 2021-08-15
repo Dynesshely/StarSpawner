@@ -72,6 +72,7 @@ namespace conconcon_tri_buter
             while (dt.Year != now.Year || dt.Month != now.Month || dt.Day != now.Day)
             {
                 ConsoleColor color = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine($"date: {dt:yyyy-MM-dd} | start commit!");
                 for (int i = 1; i <= (random ? rand.Next(5, 9) : cons); ++i)
                     generatefile(dt, lively_message);
