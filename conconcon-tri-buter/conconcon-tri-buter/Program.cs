@@ -74,6 +74,7 @@ namespace conconcon_tri_buter
                 ConsoleColor color = Console.ForegroundColor;
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine($"date: {dt:yyyy-MM-dd} | start commit!");
+                Console.ForegroundColor = color;
                 for (int i = 1; i <= (random ? rand.Next(5, 9) : cons); ++i)
                     generatefile(dt, lively_message);
                 dt = dt.AddDays(1);
