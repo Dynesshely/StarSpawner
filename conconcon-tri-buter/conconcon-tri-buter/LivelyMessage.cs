@@ -158,7 +158,7 @@ namespace conconcon_tri_buter
 
             #region 生成 subject
             string[] words_src = types_subjects[type];
-            int words_count = rand.Next(0, words_src.Length - 1);
+            int words_count = rand.Next(2, words_src.Length - 1);
             string subject = "";
             for (int i = 1; i <= words_count; ++i)
                 subject += $" {RandItem(words_src)}" + (rand.Next(0, 7) >= 6 ? " %fn%" : "");

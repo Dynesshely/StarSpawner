@@ -6,9 +6,12 @@ namespace conconcon_tri_buter
 {
     class Program
     {
+        /// <summary>
+        /// 主函数
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
-
             start: Console.Write("Switch one Mode:\r\n" +
                 "\t1. Simply contribute every selected day\r\n" +
                 "\t2. Simply contribute with random lively commit message\r\n" +
@@ -16,7 +19,6 @@ namespace conconcon_tri_buter
                 "\t0. Exit without anything...\r\n" +
                 "Switch one Mode: "
             );
-
             bool anyException = false;
             try
             {
@@ -24,12 +26,13 @@ namespace conconcon_tri_buter
                 switch (choose)
                 {
                     case 1:
-                        Simply_Contribute(false);
+                        Simply_Contribute(false, false);
                         break;
                     case 2:
-                        Simply_Contribute(true);
+                        Simply_Contribute(true, false);
                         break;
                     case 3:
+                        Simply_Contribute(true, true);
                         break;
                     case 0:
                         Console.WriteLine("See you.");
@@ -48,17 +51,29 @@ namespace conconcon_tri_buter
                 Console.ForegroundColor = beforeColor;
                 anyException = true;
             }
-
             if (anyException) goto start;
-
             Console.WriteLine("\n\nFinished! Go to your GitHub to see 13 !");
         }
 
-        private static void Simply_Contribute(bool lively_message)
+        /// <summary>
+        /// 简单消息评论
+        /// </summary>
+        /// <param name="lively_message">是否启用拟真消息</param>
+        private static void Simply_Contribute(bool lively_message, bool customDate)
         {
             Console.WriteLine($"Now Directory : {Environment.CurrentDirectory}\n");
             Console.Write("How much days you want to contribute? : ");
             int days = int.Parse(Console.ReadLine());
+            int yyyy = DateTime.Now.Year, MM = DateTime.Now.Month, dd = DateTime.Now.Day;
+            if (customDate)
+            {
+                Console.Write("Input end date (format: yyyy-MM-dd) : ");
+                string cusD = Console.ReadLine();
+                string[] dateArr = cusD.Split('-');
+                yyyy = int.Parse(dateArr[0]);
+                MM = int.Parse(dateArr[1]);
+                dd = int.Parse(dateArr[2]);
+            }
             Console.Write("How many contribution one day pushed ('r' - random) : ");
             string rst = Console.ReadLine();
             bool random = rst == "r";
@@ -67,7 +82,8 @@ namespace conconcon_tri_buter
             Console.WriteLine("\nPress any key to continue ...\n");
             Console.ReadLine(); Console.WriteLine();
 
-            DateTime dt = DateTime.Now, now = DateTime.Now;
+            DateTime dt = customDate ? new DateTime(yyyy, MM, dd) : DateTime.Now,
+                now = customDate ? new DateTime(yyyy, MM, dd) : DateTime.Now;
             dt -= new TimeSpan(days, 0, 0, 0);
             while (dt.Year != now.Year || dt.Month != now.Month || dt.Day != now.Day)
             {
@@ -81,6 +97,11 @@ namespace conconcon_tri_buter
             }
         }
 
+        /// <summary>
+        /// 生成文件并提交, 删除文件并提交
+        /// </summary>
+        /// <param name="dt">日期</param>
+        /// <param name="lively_message">是否启用拟真消息</param>
         private static void generatefile(DateTime dt, bool lively_message)
         {
             string fn = $"{Environment.CurrentDirectory}\\{randomname()}.txt";
@@ -108,20 +129,37 @@ namespace conconcon_tri_buter
             Console.WriteLine($"delete: {Path.GetFileName(fn)}");
         }
 
+        /// <summary>
+        /// 获取一条拟真消息
+        /// </summary>
+        /// <returns>拟真消息</returns>
         private static string get_lively_message() => LivelyMessage.GetLivelyMessage();
 
+        /// <summary>
+        /// 普通提交
+        /// </summary>
+        /// <param name="dt">提交日期</param>
         private static void normalCommit(DateTime dt)
         {
             runGit(" add .");
             runGit($" commit -m \"{randomname()}\" --date {dt:yyyy/MM/dd}");
         }
 
+        /// <summary>
+        /// 特殊提交
+        /// </summary>
+        /// <param name="dt">提交日期</param>
+        /// <param name="msg">提交消息</param>
         private static void specialCommit(DateTime dt, string msg)
         {
             runGit(" add .");
             runGit($" commit -m \"{msg}\" --date {dt:yyyy/MM/dd}");
         }
 
+        /// <summary>
+        /// 启动 Git
+        /// </summary>
+        /// <param name="args">启动参数</param>
         private static void runGit(string args)
         {
             using (Process myProcess = new Process())
@@ -137,6 +175,10 @@ namespace conconcon_tri_buter
 
         static Random rand = new();
 
+        /// <summary>
+        /// 随机名称
+        /// </summary>
+        /// <returns>名称字符串</returns>
         private static string randomname()
         {
             int length = 8;
