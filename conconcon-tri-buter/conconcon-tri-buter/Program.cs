@@ -7,7 +7,7 @@ namespace conconcon_tri_buter
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-
+            Console.WriteLine($"{Environment.CurrentDirectory}");
         }
     }
 }
