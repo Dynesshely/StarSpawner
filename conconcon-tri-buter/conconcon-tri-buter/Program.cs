@@ -47,49 +47,32 @@ namespace conconcon_tri_buter
             sw.Flush();
             sw.Close(); fs.Close();
 
-            using (Process myProcess = new Process())
-            {
-                myProcess.StartInfo.UseShellExecute = false;
-                myProcess.StartInfo.FileName = "git.exe";
-                myProcess.StartInfo.Arguments = " add .";
-                myProcess.StartInfo.CreateNoWindow = true;
-                myProcess.Start();
-                myProcess.WaitForExit();
-            }
-
-            using (Process myProcess = new Process())
-            {
-                myProcess.StartInfo.UseShellExecute = false;
-                myProcess.StartInfo.FileName = "git.exe";
-                myProcess.StartInfo.Arguments = $" commit -m \"{randomname()}\" --date {dt:yyyy/MM/dd}";
-                myProcess.StartInfo.CreateNoWindow = true;
-                myProcess.Start();
-                myProcess.WaitForExit();
-            }
+            normalCommit(dt);
 
             File.Delete(fn);
 
-            using (Process myProcess = new Process())
-            {
-                myProcess.StartInfo.UseShellExecute = false;
-                myProcess.StartInfo.FileName = "git.exe";
-                myProcess.StartInfo.Arguments = " add .";
-                myProcess.StartInfo.CreateNoWindow = true;
-                myProcess.Start();
-                myProcess.WaitForExit();
-            }
-
-            using (Process myProcess = new Process())
-            {
-                myProcess.StartInfo.UseShellExecute = false;
-                myProcess.StartInfo.FileName = "git.exe";
-                myProcess.StartInfo.Arguments = $" commit -m \"{randomname()}\" --date {dt:yyyy/MM/dd}";
-                myProcess.StartInfo.CreateNoWindow = true;
-                myProcess.Start();
-                myProcess.WaitForExit();
-            }
+            normalCommit(dt);
 
             Console.WriteLine($"delete: {Path.GetFileName(fn)}");
+        }
+
+        private static void normalCommit(DateTime dt)
+        {
+            runGit(" add .");
+            runGit($" commit -m \"{randomname()}\" --date {dt:yyyy/MM/dd}");
+        }
+
+        private static void runGit(string args)
+        {
+            using (Process myProcess = new Process())
+            {
+                myProcess.StartInfo.UseShellExecute = false;
+                myProcess.StartInfo.FileName = "git.exe";
+                myProcess.StartInfo.Arguments = args;
+                myProcess.StartInfo.CreateNoWindow = true;
+                myProcess.Start();
+                myProcess.WaitForExit();
+            }
         }
 
         static Random rand = new();
