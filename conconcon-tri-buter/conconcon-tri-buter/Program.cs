@@ -24,8 +24,10 @@ namespace conconcon_tri_buter
                 switch (choose)
                 {
                     case 1:
+                        Simply_Contribute(false);
                         break;
                     case 2:
+                        Simply_Contribute(true);
                         break;
                     case 3:
                         break;
@@ -36,30 +38,6 @@ namespace conconcon_tri_buter
                     default:
                         goto start;
                 }
-
-                Console.WriteLine("Hello World!");
-                Console.WriteLine($"{Environment.CurrentDirectory}");
-                Console.Write("How much days you want to contribute? : ");
-                int days = int.Parse(Console.ReadLine());
-                Console.Write("How many contribution one day pushed ('r' - random) : ");
-                string rst = Console.ReadLine();
-                bool random = rst == "r";
-                int cons = random ? -1 : int.Parse(rst);
-
-                Console.WriteLine("\nPress any key to continue ...\n");
-                Console.ReadLine(); Console.WriteLine();
-
-                DateTime dt = DateTime.Now, now = DateTime.Now;
-                dt -= new TimeSpan(days, 0, 0, 0);
-                while (dt.Year != now.Year || dt.Month != now.Month || dt.Day != now.Day)
-                {
-                    Console.WriteLine($"date: {dt:yyyy-MM-dd} | start commit!");
-                    for (int i = 1; i <= (random ? rand.Next(5, 9) : cons); ++i)
-                        generatefile(dt);
-                    dt = dt.AddDays(1);
-                }
-
-                Console.WriteLine("\n\nFinished! Go to your GitHub to see 13 !");
             }
             catch (Exception e)
             {
@@ -68,15 +46,39 @@ namespace conconcon_tri_buter
                 Console.WriteLine($"\n\n\n``` ERROR ```\n\n{e.Message}\n\n{e}\n\n" +
                     $"``` ERROR ```\n\n\n");
                 Console.ForegroundColor = beforeColor;
-            }
-            finally
-            {
                 anyException = true;
             }
+
             if (anyException) goto start;
+
+            Console.WriteLine("\n\nFinished! Go to your GitHub to see 13 !");
         }
 
-        private static void generatefile(DateTime dt)
+        private static void Simply_Contribute(bool lively_message)
+        {
+            Console.WriteLine($"Now Directory : {Environment.CurrentDirectory}\n");
+            Console.Write("How much days you want to contribute? : ");
+            int days = int.Parse(Console.ReadLine());
+            Console.Write("How many contribution one day pushed ('r' - random) : ");
+            string rst = Console.ReadLine();
+            bool random = rst == "r";
+            int cons = random ? -1 : int.Parse(rst);
+
+            Console.WriteLine("\nPress any key to continue ...\n");
+            Console.ReadLine(); Console.WriteLine();
+
+            DateTime dt = DateTime.Now, now = DateTime.Now;
+            dt -= new TimeSpan(days, 0, 0, 0);
+            while (dt.Year != now.Year || dt.Month != now.Month || dt.Day != now.Day)
+            {
+                Console.WriteLine($"date: {dt:yyyy-MM-dd} | start commit!");
+                for (int i = 1; i <= (random ? rand.Next(5, 9) : cons); ++i)
+                    generatefile(dt, lively_message);
+                dt = dt.AddDays(1);
+            }
+        }
+
+        private static void generatefile(DateTime dt, bool lively_message)
         {
             string fn = $"{Environment.CurrentDirectory}\\{randomname()}.txt";
 
@@ -90,19 +92,34 @@ namespace conconcon_tri_buter
             sw.Flush();
             sw.Close(); fs.Close();
 
-            normalCommit(dt);
+            string message = get_lively_message();
+
+            if (lively_message) specialCommit(dt, message);
+            else normalCommit(dt);
 
             File.Delete(fn);
 
-            normalCommit(dt);
+            if (lively_message) specialCommit(dt, message);
+            else normalCommit(dt);
 
             Console.WriteLine($"delete: {Path.GetFileName(fn)}");
+        }
+
+        private static string get_lively_message()
+        {
+
         }
 
         private static void normalCommit(DateTime dt)
         {
             runGit(" add .");
             runGit($" commit -m \"{randomname()}\" --date {dt:yyyy/MM/dd}");
+        }
+
+        private static void specialCommit(DateTime dt, string msg)
+        {
+            runGit(" add .");
+            runGit($" commit -m \"{msg}\" --date {dt:yyyy/MM/dd}");
         }
 
         private static void runGit(string args)
