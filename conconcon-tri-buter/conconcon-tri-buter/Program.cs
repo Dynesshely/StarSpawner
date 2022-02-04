@@ -8,29 +8,72 @@ namespace conconcon_tri_buter
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Console.WriteLine($"{Environment.CurrentDirectory}");
-            Console.Write("How much days you want to contribute? : ");
-            int days = int.Parse(Console.ReadLine());
-            Console.Write("How many contribution one day pushed ('r' - random) : ");
-            string rst = Console.ReadLine();
-            bool random = rst == "r";
-            int cons = random ? -1 : int.Parse(rst);
 
-            Console.WriteLine("\nPress any key to continue ...\n");
-            Console.ReadLine(); Console.WriteLine();
+            start: Console.Write("Switch one Mode:\r\n" +
+                "\t1. Simply contribute every selected day\r\n" +
+                "\t2. Simply contribute with random lively commit message\r\n" +
+                "\t3. Lively contribute with lively commit message\r\n" +
+                "\t0. Exit without anything...\r\n" +
+                "Switch one Mode: "
+            );
 
-            DateTime dt = DateTime.Now, now = DateTime.Now;
-            dt -= new TimeSpan(days, 0, 0, 0);
-            while(dt.Year != now.Year || dt.Month != now.Month || dt.Day != now.Day)
+            bool anyException = false;
+            try
             {
-                Console.WriteLine($"date: {dt:yyyy-MM-dd} | start commit!");
-                for (int i = 1; i <= (random ? rand.Next(5, 9) : cons); ++ i)
-                    generatefile(dt);
-                dt = dt.AddDays(1);
-            }
+                int choose = int.Parse(Console.ReadLine());
+                switch (choose)
+                {
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 0:
+                        Console.WriteLine("See you.");
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        goto start;
+                }
 
-            Console.WriteLine("\n\nFinished! Go to your GitHub to see 13 !");
+                Console.WriteLine("Hello World!");
+                Console.WriteLine($"{Environment.CurrentDirectory}");
+                Console.Write("How much days you want to contribute? : ");
+                int days = int.Parse(Console.ReadLine());
+                Console.Write("How many contribution one day pushed ('r' - random) : ");
+                string rst = Console.ReadLine();
+                bool random = rst == "r";
+                int cons = random ? -1 : int.Parse(rst);
+
+                Console.WriteLine("\nPress any key to continue ...\n");
+                Console.ReadLine(); Console.WriteLine();
+
+                DateTime dt = DateTime.Now, now = DateTime.Now;
+                dt -= new TimeSpan(days, 0, 0, 0);
+                while (dt.Year != now.Year || dt.Month != now.Month || dt.Day != now.Day)
+                {
+                    Console.WriteLine($"date: {dt:yyyy-MM-dd} | start commit!");
+                    for (int i = 1; i <= (random ? rand.Next(5, 9) : cons); ++i)
+                        generatefile(dt);
+                    dt = dt.AddDays(1);
+                }
+
+                Console.WriteLine("\n\nFinished! Go to your GitHub to see 13 !");
+            }
+            catch (Exception e)
+            {
+                ConsoleColor beforeColor = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"\n\n\n``` ERROR ```\n\n{e.Message}\n\n{e}\n\n" +
+                    $"``` ERROR ```\n\n\n");
+                Console.ForegroundColor = beforeColor;
+            }
+            finally
+            {
+                anyException = true;
+            }
+            if (anyException) goto start;
         }
 
         private static void generatefile(DateTime dt)
@@ -81,7 +124,7 @@ namespace conconcon_tri_buter
         {
             int length = 8;
             string rst = "";
-            for (int i = 1; i <= length; ++ i)
+            for (int i = 1; i <= length; ++i)
                 rst += rand.Next(0, 1) == 0 ? ((char)('A' + rand.Next(0, 25))).ToString() : ((char)('a' + rand.Next(0, 25))).ToString();
             return rst;
         }
