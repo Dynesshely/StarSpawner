@@ -113,7 +113,7 @@ namespace conconcon_tri_buter
         /// </summary>
         /// <param name="tmp">下标源</param>
         /// <returns>下标</returns>
-        private static int RandIndex(string[] tmp) => rand.Next(0, tmp.Length - 1);
+        private static int RandIndex(string[] tmp) => rand.Next(0, tmp.Length);
 
         /// <summary>
         /// 返回随机项
@@ -141,8 +141,8 @@ namespace conconcon_tri_buter
         public static string GetLivelyMessage()
         {
             string template = new(lively_message_template);
-            bool isFileNameInit = rand.Next(0, 1) == 0; // 是否在 Subject 中加入随机文件名
-            bool isScopeInit = rand.Next(0, 1) == 0; // 是否拥有 Scope
+            bool isFileNameInit = rand.Next(0, 2) == 0; // 是否在 Subject 中加入随机文件名
+            bool isScopeInit = rand.Next(0, 2) == 0; // 是否拥有 Scope
 
             #region 生成 scope
             if (isScopeInit)
@@ -161,7 +161,7 @@ namespace conconcon_tri_buter
             int words_count = rand.Next(2, words_src.Length - 1);
             string subject = "";
             for (int i = 1; i <= words_count; ++i)
-                subject += $" {RandItem(words_src)}" + (rand.Next(0, 7) >= 6 ? " %fn%" : "");
+                subject += $" {RandItem(words_src)}" + (rand.Next(0, 8) >= 6 ? " %fn%" : "");
             if (isFileNameInit)
                 while(subject.IndexOf("%fn%") != -1)
                     subject = subject.Replace("%fn%", $"{RandFileName()}");
