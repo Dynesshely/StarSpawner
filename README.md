@@ -1,3 +1,4 @@
+<font face="Consolas">
 <p align="center" style="font-family: Consolas;">
                                                 |         o   |         |              <br>
 ,---.,---.,---.,---.,---.,---.,---.,---.,---.   |--- ,---..   |---..   .|--- ,---.,---.<br>
@@ -5,6 +6,7 @@
 `---'`---'`   '`---'`---'`   '`---'`---'`   '   `---'`    `   `---'`---'`---'`---'`    <br>
                                                                                        <br>
 </p>
+</font>
 
 <p align="center">
   <a hrdf="./LICENSE"><img src="https://img.shields.io/github/license/Dynesshely/conconcon-tri-buter?style=for-the-badge"></img></a>
