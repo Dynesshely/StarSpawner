@@ -1,12 +1,10 @@
-<div align="center">
-  <p style="font-family: Terminal;">
+<p style="font-family:Consolas;text-align:center;">
                                                 |         o   |         |              <br>
 ,---.,---.,---.,---.,---.,---.,---.,---.,---.   |--- ,---..   |---..   .|--- ,---.,---.<br>
 |    |   ||   ||    |   ||   ||    |   ||   |---|    |    |---|   ||   ||    |---'|    <br>
 `---'`---'`   '`---'`---'`   '`---'`---'`   '   `---'`    `   `---'`---'`---'`---'`    <br>
                                                                                        
-  </p>
-</div>
+</p>
 
 [![Licence](https://img.shields.io/github/license/Dynesshely/conconcon-tri-buter?style=for-the-badge)](./LICENSE)
 ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
