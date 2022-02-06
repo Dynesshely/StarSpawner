@@ -1,7 +1,8 @@
-# conconcon-tri-buter
+# 中文
+## conconcon-tri-buter
 想要装13吗? 来这就对了!
 
-# 发布
+## 发布
 本地编译执行此命令, 基于 .NET 5
 <br>
 请确保安装了有效的 sdk
@@ -9,8 +10,8 @@
 dotnet publish -r win-x86 -c release -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
 ```
 
-# 使用
-## 简介
+## 使用
+### 简介
 菜单目前有四项
 1. Simply contribute every selected day
 2. Simply contribute with random lively commit message
@@ -28,22 +29,23 @@ dotnet publish -r win-x86 -c release -p:PublishSingleFile=true -p:IncludeNativeL
 3. 功能类似 `选项 1`, 允许自定结束日期, 而非从即日计算, 并且提交消息为拟真消息
 4. 具有密度功能的拟真提交(🎷吹爆!): 允许自定开始日期与结束日期, 需要设置密度, 允许设定每日最多提交数, 并且可选是固定最多提交数还是随机浮动提交数
 
-# 它是如何工作的
+## 它是如何工作的
 已知 git commit 命令允许使用 --date 参数指定提交日期
 而 GitHub 计算 Contribute 的方式即通过 commit 的日期计算
 我们仅需创建一个文件, 提交
 再删除这个文件, 如此往复并指定日期即可以假乱真
 最后推送, GitHub 的 Contribution 图就可以装13啦!
 
-# conconcon-tri-buter
+# English
+## conconcon-tri-buter
 want to zhuang 13? come here.
 
-# publish
+## publish
 ``` PS
 dotnet publish -r win-x86 -c release -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
 ```
 
-# use
+## use
 1. go to release and download the latesed
 2. copy the release single file directly to your `.git` root directory
 3. run it
@@ -55,10 +57,10 @@ dotnet publish -r win-x86 -c release -p:PublishSingleFile=true -p:IncludeNativeL
 9. go to your github homepage and see what happened
 10. enjoy it
 
-# how it worked
+## how it worked
 by directly create a random file and commit this change again and again
 and append `--date` to set date
 then finally push all
 
-# besides
+## besides
 any results that you use this program caused didn't attach to me, okay?
