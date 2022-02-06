@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using ch = conconcon_tri_buter.ConsoleHelper;
 
 namespace conconcon_tri_buter
 {
@@ -48,26 +49,12 @@ namespace conconcon_tri_buter
             }
             catch (Exception e)
             {
-                ConsoleColor beforeColor = Console.ForegroundColor;
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"\n\n\n``` ERROR ```\n\n{e.Message}\n\n{e}\n\n" +
-                    $"``` ERROR ```\n\n\n");
-                Console.ForegroundColor = beforeColor;
+                ch.Output($"\n\n\n``` ERROR ```\n\n{e.Message}\n\n{e}\n\n" +
+                    $"``` ERROR ```\n\n\n", ConsoleColor.Red);
                 anyException = true;
             }
             if (anyException) goto start;
-            GetInput("\n\nFinished! Go to your GitHub to see 13 !");
-        }
-
-        /// <summary>
-        /// 简化输入的获取
-        /// </summary>
-        /// <param name="message">提示消息</param>
-        /// <returns>用户输入</returns>
-        private static string GetInput(string message)
-        {
-            Console.Write(message);
-            return Console.ReadLine();
+            ch.GetInput("\n\nFinished! Go to your GitHub to see 13 !");
         }
 
         /// <summary>
@@ -76,7 +63,7 @@ namespace conconcon_tri_buter
         /// <param name="lively_message">是否使用拟真消息</param>
         private static void Density_Contribute(bool lively_message)
         {
-
+            
         }
 
         /// <summary>
@@ -86,17 +73,17 @@ namespace conconcon_tri_buter
         private static void Simply_Contribute(bool lively_message, bool customDate)
         {
             Console.WriteLine($"Now Directory : {Environment.CurrentDirectory}\n");
-            int days = int.Parse(GetInput("How much days you want to contribute? : "));
+            int days = int.Parse(ch.GetInput("How much days you want to contribute? : "));
             int yyyy = DateTime.Now.Year, MM = DateTime.Now.Month, dd = DateTime.Now.Day;
             if (customDate)
             {
-                string cusD = GetInput("Input end date (format: yyyy-MM-dd) : ");
+                string cusD = ch.GetInput("Input end date (format: yyyy-MM-dd) : ");
                 string[] dateArr = cusD.Split('-');
                 yyyy = int.Parse(dateArr[0]);
                 MM = int.Parse(dateArr[1]);
                 dd = int.Parse(dateArr[2]);
             }
-            string rst = GetInput("How many contribution one day pushed ('r' - random) : ");
+            string rst = ch.GetInput("How many contribution one day pushed ('r' - random) : ");
             bool random = rst == "r";
             int cons = random ? -1 : int.Parse(rst);
 
