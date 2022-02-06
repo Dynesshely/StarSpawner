@@ -1,11 +1,11 @@
 
-
+``` shell
                                                 |         o   |         |              
 ,---.,---.,---.,---.,---.,---.,---.,---.,---.   |--- ,---..   |---..   .|--- ,---.,---.
 |    |   ||   ||    |   ||   ||    |   ||   |---|    |    |---|   ||   ||    |---'|    
 `---'`---'`   '`---'`---'`   '`---'`---'`   '   `---'`    `   `---'`---'`---'`---'`    
                                                                                        
-
+```
 
 <p align="center">
   <a hrdf="./LICENSE"><img src="https://img.shields.io/github/license/Dynesshely/conconcon-tri-buter?style=for-the-badge"></img></a>
@@ -19,6 +19,10 @@
 # 中文
 ## conconcon-tri-buter
 想要装13吗? 来这就对了!
+
+## 它能做什么
+能够刷 GitHub 或者是 Gitlab Gitee 的 Contribution
+能拿来装逼
 
 ## 发布
 本地编译执行此命令, 基于 .NET 5
@@ -57,6 +61,9 @@ dotnet publish -r win-x86 -c release -p:PublishSingleFile=true -p:IncludeNativeL
 # English
 ## conconcon-tri-buter
 want to zhuang 13? come here.
+
+## what can it do
+make fake data of your contribution on GitHub / GitLab or Gitee
 
 ## publish
 ``` PS
