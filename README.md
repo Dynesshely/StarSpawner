@@ -1,4 +1,4 @@
-[![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)](./LICENSE)
+[![Licence](https://img.shields.io/github/license/Dynesshely/conconcon-tri-buter?style=for-the-badge)](./LICENSE)
 
 # 中文
 ## conconcon-tri-buter
