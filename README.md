@@ -1,10 +1,4 @@
-<head>
-p {
-  font-family: Consolas;
-}
-</head>
-
-<p align="center">
+<p align="center" style="font-family: Consolas;">
                                                 |         o   |         |              <br>
 ,---.,---.,---.,---.,---.,---.,---.,---.,---.   |--- ,---..   |---..   .|--- ,---.,---.<br>
 |    |   ||   ||    |   ||   ||    |   ||   |---|    |    |---|   ||   ||    |---'|    <br>
