@@ -1,5 +1,5 @@
 <div align="center">
-  <p style="font-family: Consolas;">
+  <p style="font-family: Terminal;">
                                                 |         o   |         |              <br>
 ,---.,---.,---.,---.,---.,---.,---.,---.,---.   |--- ,---..   |---..   .|--- ,---.,---.<br>
 |    |   ||   ||    |   ||   ||    |   ||   |---|    |    |---|   ||   ||    |---'|    <br>
