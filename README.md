@@ -1,11 +1,11 @@
 <div align="center">
-``` shell
+  <p>
                                                 |         o   |         |              
 ,---.,---.,---.,---.,---.,---.,---.,---.,---.   |--- ,---..   |---..   .|--- ,---.,---.
 |    |   ||   ||    |   ||   ||    |   ||   |---|    |    |---|   ||   ||    |---'|    
 `---'`---'`   '`---'`---'`   '`---'`---'`   '   `---'`    `   `---'`---'`---'`---'`    
                                                                                        
-```
+  </p>
 </div>
 
 [![Licence](https://img.shields.io/github/license/Dynesshely/conconcon-tri-buter?style=for-the-badge)](./LICENSE)
