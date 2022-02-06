@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\OneDrive\\Development\\Projects\\conconcon-tri-buter\\conconcon-tri-buter\\cctb-wpf\\cctb-wpf.csproj": {}
+    "E:\\Development\\Projects\\conconcon-tri-buter\\conconcon-tri-buter\\cctb-wpf\\cctb-wpf.csproj": {}
   },
   "projects": {
-    "E:\\OneDrive\\Development\\Projects\\conconcon-tri-buter\\conconcon-tri-buter\\cctb-wpf\\cctb-wpf.csproj": {
+    "E:\\Development\\Projects\\conconcon-tri-buter\\conconcon-tri-buter\\cctb-wpf\\cctb-wpf.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\OneDrive\\Development\\Projects\\conconcon-tri-buter\\conconcon-tri-buter\\cctb-wpf\\cctb-wpf.csproj",
+        "projectUniqueName": "E:\\Development\\Projects\\conconcon-tri-buter\\conconcon-tri-buter\\cctb-wpf\\cctb-wpf.csproj",
         "projectName": "cctb-wpf",
-        "projectPath": "E:\\OneDrive\\Development\\Projects\\conconcon-tri-buter\\conconcon-tri-buter\\cctb-wpf\\cctb-wpf.csproj",
+        "projectPath": "E:\\Development\\Projects\\conconcon-tri-buter\\conconcon-tri-buter\\cctb-wpf\\cctb-wpf.csproj",
         "packagesPath": "C:\\Users\\23699\\.nuget\\packages\\",
-        "outputPath": "E:\\OneDrive\\Development\\Projects\\conconcon-tri-buter\\conconcon-tri-buter\\cctb-wpf\\obj\\",
+        "outputPath": "E:\\Development\\Projects\\conconcon-tri-buter\\conconcon-tri-buter\\cctb-wpf\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "E:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
