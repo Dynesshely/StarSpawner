@@ -6,6 +6,8 @@
                                                                                        <br>
 </p>
 
+<font face="宋体">宋体</font>
+
 <p align="center">
   <a hrdf="./LICENSE"><img src="https://img.shields.io/github/license/Dynesshely/conconcon-tri-buter?style=for-the-badge"></img></a>
   <a hrdf=""><img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white"></img></a>
