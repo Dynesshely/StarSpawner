@@ -1,3 +1,5 @@
+[![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)](./LICENSE)
+
 # 中文
 ## conconcon-tri-buter
 想要装13吗? 来这就对了!
