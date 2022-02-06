@@ -27,24 +27,12 @@ namespace conconcon_tri_buter
                 int choose = int.Parse(Console.ReadLine());
                 switch (choose)
                 {
-                    case 1:
-                        Simply_Contribute(false, false);
-                        break;
-                    case 2:
-                        Simply_Contribute(true, false);
-                        break;
-                    case 3:
-                        Simply_Contribute(true, true);
-                        break;
-                    case 4:
-                        Density_Contribute(true);
-                        break;
-                    case 0:
-                        Console.WriteLine("See you.");
-                        Environment.Exit(0);
-                        break;
-                    default:
-                        goto start;
+                    case 1: Simply_Contribute(false, false); break;
+                    case 2: Simply_Contribute(true, false); break;
+                    case 3: Simply_Contribute(true, true); break;
+                    case 4: Density_Contribute(true); break;
+                    case 0: Console.WriteLine("See you."); Environment.Exit(0); break;
+                    default: goto start;
                 }
             }
             catch (Exception e)
@@ -74,34 +62,25 @@ namespace conconcon_tri_buter
         {
             Console.WriteLine($"Now Directory : {Environment.CurrentDirectory}\n");
             int days = int.Parse(ch.GetInput("How much days you want to contribute? : "));
-            int yyyy = DateTime.Now.Year, MM = DateTime.Now.Month, dd = DateTime.Now.Day;
+            DateTime cusD = DateTime.Now;
             if (customDate)
-            {
-                string cusD = ch.GetInput("Input end date (format: yyyy-MM-dd) : ");
-                string[] dateArr = cusD.Split('-');
-                yyyy = int.Parse(dateArr[0]);
-                MM = int.Parse(dateArr[1]);
-                dd = int.Parse(dateArr[2]);
-            }
+                cusD = ch.GetDate("Input end date (format: yyyy-MM-dd) : ", '-');
             string rst = ch.GetInput("How many contribution one day pushed ('r' - random) : ");
             bool random = rst == "r";
             int cons = random ? -1 : int.Parse(rst);
-
             Console.WriteLine("\nPress any key to continue ...\n");
             Console.ReadLine(); Console.WriteLine();
-
-            DateTime dt = customDate ? new DateTime(yyyy, MM, dd) : DateTime.Now,
-                now = customDate ? new DateTime(yyyy, MM, dd) : DateTime.Now;
+            DateTime dt = customDate ? cusD : DateTime.Now,
+                now = customDate ? cusD : DateTime.Now;
             dt -= new TimeSpan(days, 0, 0, 0);
+            int finishedDays = 1;
             while (dt.Year != now.Year || dt.Month != now.Month || dt.Day != now.Day)
             {
-                ConsoleColor color = Console.ForegroundColor;
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine($"date: {dt:yyyy-MM-dd} | start commit!");
-                Console.ForegroundColor = color;
+                ch.Output($"{finishedDays}.\t| date: {dt:yyyy-MM-dd} | start commit!", ConsoleColor.Blue);
                 for (int i = 1; i <= (random ? rand.Next(3, 41) : cons); ++i)
                     generatefile(dt, lively_message);
                 dt = dt.AddDays(1);
+                ++finishedDays;
             }
         }
 
