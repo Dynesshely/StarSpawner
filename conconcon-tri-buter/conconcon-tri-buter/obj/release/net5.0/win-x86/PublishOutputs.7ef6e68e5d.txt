@@ -1,2 +1,0 @@
-E:\OneDrive\Development\Projects\conconcon-tri-buter\conconcon-tri-buter\conconcon-tri-buter\bin\release\net5.0\win-x86\publish\conconcon-tri-buter.pdb
-E:\OneDrive\Development\Projects\conconcon-tri-buter\conconcon-tri-buter\conconcon-tri-buter\bin\release\net5.0\win-x86\publish\conconcon-tri-buter.exe
