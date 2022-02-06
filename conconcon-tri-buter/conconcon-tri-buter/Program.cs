@@ -16,6 +16,7 @@ namespace conconcon_tri_buter
                 "\t1. Simply contribute every selected day\r\n" +
                 "\t2. Simply contribute with random lively commit message\r\n" +
                 "\t3. Lively contribute with lively commit message\r\n" +
+                "\t4. Lively contribute with lively commit message with density\r\n" +
                 "\t0. Exit without anything...\r\n" +
                 "Switch one Mode: "
             );
@@ -33,6 +34,9 @@ namespace conconcon_tri_buter
                         break;
                     case 3:
                         Simply_Contribute(true, true);
+                        break;
+                    case 4:
+                        Density_Contribute(true);
                         break;
                     case 0:
                         Console.WriteLine("See you.");
@@ -53,6 +57,11 @@ namespace conconcon_tri_buter
             }
             if (anyException) goto start;
             Console.WriteLine("\n\nFinished! Go to your GitHub to see 13 !");
+        }
+
+        private static void Density_Contribute(bool v)
+        {
+
         }
 
         /// <summary>
