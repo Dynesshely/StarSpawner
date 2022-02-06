@@ -1,10 +1,10 @@
-<p style="font-family:Consolas;text-align:center;">
+<center>
                                                 |         o   |         |              <br>
 ,---.,---.,---.,---.,---.,---.,---.,---.,---.   |--- ,---..   |---..   .|--- ,---.,---.<br>
 |    |   ||   ||    |   ||   ||    |   ||   |---|    |    |---|   ||   ||    |---'|    <br>
 `---'`---'`   '`---'`---'`   '`---'`---'`   '   `---'`    `   `---'`---'`---'`---'`    <br>
                                                                                        
-</p>
+</center>
 
 [![Licence](https://img.shields.io/github/license/Dynesshely/conconcon-tri-buter?style=for-the-badge)](./LICENSE)
 ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
