@@ -56,10 +56,25 @@ namespace conconcon_tri_buter
                 anyException = true;
             }
             if (anyException) goto start;
-            Console.WriteLine("\n\nFinished! Go to your GitHub to see 13 !");
+            GetInput("\n\nFinished! Go to your GitHub to see 13 !");
         }
 
-        private static void Density_Contribute(bool v)
+        /// <summary>
+        /// 简化输入的获取
+        /// </summary>
+        /// <param name="message">提示消息</param>
+        /// <returns>用户输入</returns>
+        private static string GetInput(string message)
+        {
+            Console.Write(message);
+            return Console.ReadLine();
+        }
+
+        /// <summary>
+        /// 带密度的提交
+        /// </summary>
+        /// <param name="lively_message">是否使用拟真消息</param>
+        private static void Density_Contribute(bool lively_message)
         {
 
         }
@@ -71,20 +86,17 @@ namespace conconcon_tri_buter
         private static void Simply_Contribute(bool lively_message, bool customDate)
         {
             Console.WriteLine($"Now Directory : {Environment.CurrentDirectory}\n");
-            Console.Write("How much days you want to contribute? : ");
-            int days = int.Parse(Console.ReadLine());
+            int days = int.Parse(GetInput("How much days you want to contribute? : "));
             int yyyy = DateTime.Now.Year, MM = DateTime.Now.Month, dd = DateTime.Now.Day;
             if (customDate)
             {
-                Console.Write("Input end date (format: yyyy-MM-dd) : ");
-                string cusD = Console.ReadLine();
+                string cusD = GetInput("Input end date (format: yyyy-MM-dd) : ");
                 string[] dateArr = cusD.Split('-');
                 yyyy = int.Parse(dateArr[0]);
                 MM = int.Parse(dateArr[1]);
                 dd = int.Parse(dateArr[2]);
             }
-            Console.Write("How many contribution one day pushed ('r' - random) : ");
-            string rst = Console.ReadLine();
+            string rst = GetInput("How many contribution one day pushed ('r' - random) : ");
             bool random = rst == "r";
             int cons = random ? -1 : int.Parse(rst);
 
