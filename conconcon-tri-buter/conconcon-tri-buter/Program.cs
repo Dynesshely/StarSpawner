@@ -87,7 +87,8 @@ namespace conconcon_tri_buter
             DateTime sdt = ch.GetDate("Input start date (yyyy-MM-dd): ", '-'),
                 edt = ch.GetDate("Input end date (yyyy-MM-dd): ", '-');
             double density = double.Parse(ch.GetInput("Input density (0 - 1): "));
-            int maxi = int.Parse(ch.GetInput("Input maxi commit one day : "));
+            int maxi = int.Parse(ch.GetInput("Input maxi commit per day : "));
+            bool flexible = ch.GetInput("Flexible commits per day ? (y/n) : ").Equals("y");
             int totalDay = (int)(edt - sdt).TotalDays, needDay = (int)(totalDay * density);
             ArrayList existed = new()
             {
@@ -109,7 +110,7 @@ namespace conconcon_tri_buter
                 ch.Output($"date: {dt:yyyy-MM-dd} | start commit!\n", ConsoleColor.Cyan);
                 int this_turn_max = rand.Next(1, 9) > 7 ?
                     rand.Next(maxi / 2, maxi) : rand.Next(1, maxi / 2);
-                for(int i = 1; i <= this_turn_max; ++ i)
+                for(int i = 1; i <= (flexible ? this_turn_max : maxi); ++ i)
                     generatefile(dt.AddHours(rand.Next(1, 23)), lively_message, false);
             }
         }
