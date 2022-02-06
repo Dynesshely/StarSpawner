@@ -103,8 +103,9 @@ namespace conconcon_tri_buter
             foreach (DateTime dt in targets)
             {
                 ch.Output($"date: {dt:yyyy-MM-dd} | start commit!\n", ConsoleColor.Cyan);
-
-                for(int i = 1; i <= maxi; ++ i)
+                int this_turn_max = rand.Next(1, 9) > 7 ?
+                    rand.Next(maxi / 2, maxi) : rand.Next(1, maxi / 2);
+                for(int i = 1; i <= this_turn_max; ++ i)
                     generatefile(dt.AddHours(rand.Next(1, 23)), lively_message, false);
             }
         }
