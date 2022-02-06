@@ -104,14 +104,26 @@ namespace cctb_wpf
         {
             ContriGraph cgtmp = new(contriGraph.BaseDT)
             {
-                VerticalAlignment = VerticalAlignment.Top,
-                IsEnabled = false
+                IsEnabled = false,
+                Margin = new Thickness(10)
             };
-            foreach (DateTime dt in contriGraph.source.Keys)
-                if(contriGraph.commits[dt] != 0)
-                    cgtmp.SetCommit(dt, contriGraph.commits[dt]);
-            StartCommitWin scw = new();
+            StartCommitWin scw = new()
+            {
+                Owner = this
+            };
             scw.rootGrid.Children.Add(cgtmp);
+            DockPanel.SetDock(cgtmp, Dock.Top);
+            scw.dates.Width = cgtmp.Width;
+            foreach (DateTime dt in contriGraph.source.Keys)
+                if (contriGraph.commits[dt] != 0)
+                {
+                    cgtmp.SetCommit(dt, contriGraph.commits[dt]);
+                    scw.dates.Children.Add(new TextBlock()
+                    {
+                        Text = $"{dt:yyyy-MM-dd} ({contriGraph.commits[dt]})\t",
+                        Foreground = ContriGraph.Block_Stroke_Normal
+                    });
+                }
             scw.ShowDialog();
         }
     }

@@ -4,10 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cctb_wpf"
-        mc:Ignorable="d"
-        SizeToContent="Width" WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d" ResizeMode="CanMinimize"
+        SizeToContent="Width" WindowStartupLocation="CenterOwner"
         Title="确认并开始提交" Height="450" Width="800" Background="Black">
-    <Grid x:Name="rootGrid">
-        
-    </Grid>
+    <DockPanel x:Name="rootGrid">
+        <Grid DockPanel.Dock="Bottom">
+            <WrapPanel x:Name="dates" Margin="10">
+
+            </WrapPanel>
+        </Grid>
+        <Border/>
+    </DockPanel>
 </Window>

@@ -77,56 +77,56 @@ namespace cctb_wpf
         /// <summary>
         /// 普通边框
         /// </summary>
-        private static SolidColorBrush Block_Stroke_Normal = new()
+        public static SolidColorBrush Block_Stroke_Normal = new()
         {
             Color = Colors.WhiteSmoke
         };
         /// <summary>
         /// 选择边框
         /// </summary>
-        private static SolidColorBrush Block_Stroke_Selected = new()
+        public static SolidColorBrush Block_Stroke_Selected = new()
         {
             Color = Colors.DarkRed
         };
         /// <summary>
         /// 高亮边框
         /// </summary>
-        private static SolidColorBrush Block_Stroke_Highlight = new()
+        public static SolidColorBrush Block_Stroke_Highlight = new()
         {
             Color = Colors.Cyan
         };
         /// <summary>
         /// 普通背景
         /// </summary>
-        private static SolidColorBrush Block_Fill_Normal = new()
+        public static SolidColorBrush Block_Fill_Normal = new()
         {
             Color = Colors.Transparent
         };
         /// <summary>
         /// 提交背景 - 少
         /// </summary>
-        private static SolidColorBrush Block_Fill_Less = new()
+        public static SolidColorBrush Block_Fill_Less = new()
         {
             Color = Color.FromRgb(14, 68, 41)
         };
         /// <summary>
         /// 提交背景 - 中下
         /// </summary>
-        private static SolidColorBrush Block_Fill_Medium_Less = new()
+        public static SolidColorBrush Block_Fill_Medium_Less = new()
         {
             Color = Color.FromRgb(0, 109, 50)
         };
         /// <summary>
         /// 提交背景 - 中上
         /// </summary>
-        private static SolidColorBrush Block_Fill_Medium_More = new()
+        public static SolidColorBrush Block_Fill_Medium_More = new()
         {
             Color = Color.FromRgb(38, 166, 65)
         };
         /// <summary>
         /// 提交背景 - 多
         /// </summary>
-        private static SolidColorBrush Block_Fill_More = new()
+        public static SolidColorBrush Block_Fill_More = new()
         {
             Color = Color.FromRgb(57, 211, 83)
         };
