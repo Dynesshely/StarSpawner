@@ -24,10 +24,11 @@ namespace conconcon_tri_buter
                 "\t0. Exit without anything...\r\n" +
                 "Switch one Mode: "
             );
+            int choose = int.Parse(Console.ReadLine());
             bool anyException = false;
+            bool push_afterAll = ch.GetInput("Push after commit ? (y/n) : ") == "y";
             try
             {
-                int choose = int.Parse(Console.ReadLine());
                 switch (choose)
                 {
                     case 1: Simply_Contribute(false, false); break;
@@ -45,6 +46,7 @@ namespace conconcon_tri_buter
                 anyException = true;
             }
             if (anyException) goto start;
+            if (push_afterAll) runGit(" push");
             ch.GetInput("\n\nFinished! Go to your GitHub to see 13 !");
         }
 
