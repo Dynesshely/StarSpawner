@@ -1,4 +1,41 @@
 # conconcon-tri-buter
+想要装13吗? 来这就对了!
+
+# 发布
+本地编译执行此命令, 基于 .NET 5
+<br>
+请确保安装了有效的 sdk
+``` PS
+dotnet publish -r win-x86 -c release -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
+```
+
+# 使用
+## 简介
+菜单目前有四项
+1. Simply contribute every selected day
+2. Simply contribute with random lively commit message
+3. Lively contribute with lively commit message
+4. Lively contribute with lively commit message with density
+选择一项并回车
+功能分别对应:
+1. 从即日起前 n 天内每天提交 r 次 (r 可选固定不限次或是随机, 随机最多 40 次 (需要更多的请自行更改源码并编译) ), 并且提交消息为随机字符串
+2. 功能类似 `选项 1`, 并且提交消息为拟真消息, 格式如下:
+  1. type(scope): subject
+  2. type   : 类型 (feat, fix, docs, style, refactor, test, chore)
+  3. scope  : 变动范围, 可选. 多为文件名或目录
+  4. subject: 简要概述变动内容及作用
+  5. 此模板参照 [阮一峰老师の博客](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html) 生成
+3. 功能类似 `选项 1`, 允许自定结束日期, 而非从即日计算, 并且提交消息为拟真消息
+4. 具有密度功能的拟真提交(🎷吹爆!): 允许自定开始日期与结束日期, 需要设置密度, 允许设定每日最多提交数, 并且可选是固定最多提交数还是随机浮动提交数
+
+# 它是如何工作的
+已知 git commit 命令允许使用 --date 参数指定提交日期
+而 GitHub 计算 Contribute 的方式即通过 commit 的日期计算
+我们仅需创建一个文件, 提交
+再删除这个文件, 如此往复并指定日期即可以假乱真
+最后推送, GitHub 的 Contribution 图就可以装13啦!
+
+# conconcon-tri-buter
 want to zhuang 13? come here.
 
 # publish
