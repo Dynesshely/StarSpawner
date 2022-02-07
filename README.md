@@ -24,11 +24,11 @@
 
 ------
 
-目前 | Hi there 🎠:
+目前 🎠:
 1. 🍔 控制台应用暂缓开发, 功能较为齐全
 2. 🥓 正在积极开发图形化版本, 以期达到方便易用
 3. 🎉 多多支持呀 !
-<br>
+Hi there 🎠:
 1. 🍔 Development of Console App paused, it had got more complete functions
 2. 🥓 A graphical version is being actively developed for ease of use
 3. 🎉 Support us !
