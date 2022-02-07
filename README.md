@@ -66,7 +66,7 @@ dotnet publish -r win-x86 -c release -p:PublishSingleFile=true -p:IncludeNativeL
 
 4. Lively contribute with lively commit message with density
 
-  说明: 功能类似 `选项 1`, 但增加密度提交功能 (🎷吹爆):  需要手动设置 密度 和 每日最多提交数, 且允许手动设置开始和结束日期, Commits 为拟真消息
+   说明: 功能类似 `选项 1`, 但增加密度提交功能 (🎷吹爆):  需要手动设置 密度 和 每日最多提交数, 且允许手动设置开始和结束日期, Commits 为拟真消息
 
 ## 它是如何工作的
 git commit 命令允许使用 --date 参数指定提交日期, 而 GitHub 通过 Commits 的日期计算 Contributions, 本程序通过重复 ”创建文件, 指定提交日期, 提交, 删除“ 这一流程的方式, 以假乱真, 让你的 GitHub Contributions 有13可装!
