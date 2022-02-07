@@ -33,6 +33,10 @@ dotnet publish -r win-x86 -c release -p:PublishSingleFile=true -p:IncludeNativeL
 ```
 
 ## 使用
+首先拷贝最后的 Release (在GitHub的Release那里) 的 exe 程序<br>
+到你的根目录下, 即 含有 .git 这个隐藏文件夹的目录下<br>
+然后运行<br>
+
 ### 简介
 菜单目前有四项
 1. Simply contribute every selected day
