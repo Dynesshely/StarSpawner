@@ -19,6 +19,8 @@
 
 </br>
 
+> 已与 [https://blog.catrol.cn/2022/02/07/save-your-github/](https://blog.catrol.cn/2022/02/07/save-your-github/) 同步
+
 # 中文文档
 
 想要装13吗? 来这就对了!
