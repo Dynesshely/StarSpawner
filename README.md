@@ -20,6 +20,7 @@
 </br>
 
 > 已与 [https://blog.catrol.cn/2022/02/07/save-your-github/](https://blog.catrol.cn/2022/02/07/save-your-github/) 同步
+> [中文](#中文文档) | [English](#english-docs)
 
 # 中文文档
 
