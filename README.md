@@ -34,7 +34,7 @@ dotnet publish -r win-x86 -c release -p:PublishSingleFile=true -p:IncludeNativeL
 
 ## 使用
 首先拷贝最后的 Release (在GitHub的Release那里) 的 exe 程序<br>
-到你的根目录下, 即 含有 .git 这个隐藏文件夹的目录下<br>
+到你的根目录下, 即 含有 `.git` 这个隐藏文件夹的目录下<br>
 然后运行<br>
 
 ### 简介
@@ -78,6 +78,8 @@ dotnet publish -r win-x86 -c release -p:PublishSingleFile=true -p:IncludeNativeL
 ```
 
 ## use
+copy latesed Release to your root dir of your project where include `.git` dir<br>
+then run it
 1. go to release and download the latesed
 2. copy the release single file directly to your `.git` root directory
 3. run it
