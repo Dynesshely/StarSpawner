@@ -41,6 +41,13 @@ dotnet publish -r win-x86 -c release -p:PublishSingleFile=true -p:IncludeNativeL
 2. 运行下载的 exe 程序，并按照提示进行操作
 
 ## 使用
+### 先决条件
+1. 需要完整的 git 工具安装
+2. 确保终端可以使用 git 命令
+3. 确保本地仓库的 origin 源已经添加 GitHub 或是其它托管平台的仓库地址
+4. 确保本地密钥配置完善, 可以直接 push , 否则请手动 push
+
+### 如何使用
 菜单目前有四项
 1. Simply contribute every selected day
 
