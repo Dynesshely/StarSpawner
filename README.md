@@ -23,6 +23,13 @@
 
 想要装13吗? 来这就对了!
 
+## 效果展示
+> 下图图3(左下角)中密集区块生成是在指定区间(2015-6-14 到 2015-9-27)固定每日提交次数, 密度 0.7 时的效果
+
+![带密度的全年随机生成 (密度: 0.1 ~ 0.3 时)](https://source.catrol.cn/img/blog-catrol/posts/save-your-github/contribution-graph.png)
+<br>
+![混合带密度的随机生成与不带密度的全年覆盖生成](https://source.catrol.cn/img/blog-catrol/posts/save-your-github/contribution-final-effect.png)
+
 ## 它能做什么
 1. 能快速增加项目的 Commits 数量
 
@@ -35,6 +42,12 @@
 ``` powershell
 dotnet publish -r win-x86 -c release -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
 ```
+另外, 不同平台请指定 -r 参数 <br>
+可选 (macOS 选项未知, 可自行探索):
+1. win-x86
+2. win-x64
+3. linux-x86
+4. linux-x64
 
 ## 下载
 1. 在 GitHub Release 中, 下载最新版本的 exe 程序, 并存放到 需要刷 Commits 的项目 的 git 根目录下 (请确保该目录含有 `.git` 这个隐藏文件夹)
