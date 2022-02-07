@@ -26,9 +26,8 @@
 ## 效果展示
 > 下图图3(左下角)中密集区块生成是在指定区间(2015-6-14 到 2015-9-27)固定每日提交次数, 密度 0.7 时的效果
 
-![带密度的全年随机生成 (密度: 0.1 ~ 0.3 时)](https://source.catrol.cn/img/blog-catrol/posts/save-your-github/contribution-graph.png)
-<br>
-![混合带密度的随机生成与不带密度的全年覆盖生成](https://source.catrol.cn/img/blog-catrol/posts/save-your-github/contribution-final-effect.png)
+<p align="center"><img src="https://source.catrol.cn/img/blog-catrol/posts/save-your-github/contribution-graph.png" alt="带密度的全年随机生成 (密度: 0.1 ~ 0.3 时)"></img></p>
+<p align="center"><img src="https://source.catrol.cn/img/blog-catrol/posts/save-your-github/contribution-final-effect.png" alt="混合带密度的随机生成与不带密度的全年覆盖生成"></img></p>
 
 ## 它能做什么
 1. 能快速增加项目的 Commits 数量
@@ -86,7 +85,7 @@ dotnet publish -r win-x86 -c release -p:PublishSingleFile=true -p:IncludeNativeL
 
 4. Lively contribute with lively commit message with density
 
-   说明: 功能类似 `选项 1`, 但增加密度提交功能 (🎷吹爆):  需要手动设置 密度 和 每日最多提交数, 且允许手动设置开始和结束日期, Commits 为拟真消息
+   说明: 功能类似 `选项 1`, 但增加密度提交功能 (🎷吹爆(正态分布随机数实现)):  需要手动设置 密度 和 每日最多提交数, 且允许手动设置开始和结束日期, Commits 为拟真消息
 
 ## 它是如何工作的
 git commit 命令允许使用 --date 参数指定提交日期, 而 GitHub 通过 Commits 的日期计算 Contributions, 本程序通过重复 ”创建文件, 指定提交日期, 提交, 删除“ 这一流程的方式, 以假乱真, 让你的 GitHub Contributions 有13可装!
