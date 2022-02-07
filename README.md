@@ -9,7 +9,7 @@
 ```
 
 <p align="center">
-  ⚖️<a href="./LICENSE"><img src="https://img.shields.io/github/license/Dynesshely/conconcon-tri-buter?style=for-the-badge"></img></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/github/license/Dynesshely/conconcon-tri-buter?style=for-the-badge"></img></a>
   <a href=""><img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white"></img></a>
   <a href=""><img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black"></img></a>
   <a href=""><img src="https://img.shields.io/badge/mac%20os-000000?style=for-the-badge&logo=macos&logoColor=F0F0F0"></img></a>
@@ -21,6 +21,17 @@
   🌐 <a href="#中文文档">中文</a> | <a href="#english-docs">English</a><br>
 已与 🅱️ <a href="https://blog.catrol.cn/2022/02/07/save-your-github/" target="_blank">常青园晚 の 博客</a> 同步
 </p>
+
+------
+
+目前 | Hi there 🎠:
+1. 🍔 控制台应用暂缓开发, 功能较为齐全
+2. 🥓 正在积极开发图形化版本, 以期达到方便易用
+3. 🎉 多多支持呀 !
+<br>
+1. 🍔 Development of Console App paused, it had got more complete functions
+2. 🥓 A graphical version is being actively developed for ease of use
+3. 🎉 Support us !
 
 ------
 
