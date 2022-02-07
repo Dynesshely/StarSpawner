@@ -27,7 +27,9 @@
 > 下图图3(左下角)中密集区块生成是在指定区间(2015-6-14 到 2015-9-27)固定每日提交次数, 密度 0.7 时的效果
 
 <p align="center"><img src="https://source.catrol.cn/img/blog-catrol/posts/save-your-github/contribution-graph.png" alt="带密度的全年随机生成 (密度: 0.1 ~ 0.3 时)"></img></p>
+<p alitn="center">带密度的全年随机生成 (密度: 0.1 ~ 0.3 时)</p>
 <p align="center"><img src="https://source.catrol.cn/img/blog-catrol/posts/save-your-github/contribution-final-effect.png" alt="混合带密度的随机生成与不带密度的全年覆盖生成"></img></p>
+<p alitn="center">混合带密度的随机生成与不带密度的全年覆盖生成</p>
 
 ## 它能做什么
 1. 能快速增加项目的 Commits 数量
