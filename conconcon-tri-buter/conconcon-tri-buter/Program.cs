@@ -24,16 +24,16 @@ namespace conconcon_tri_buter
                 "\t0. Exit without anything...\r\n" +
                 "Switch one Mode: "
             );
-            int choose = int.Parse(Console.ReadLine());
-            if(choose == 0)
-            {
-                ch.Output("See you.", ConsoleColor.DarkBlue);
-                Environment.Exit(0);
-            }
             bool anyException = false;
-            bool push_afterAll = ch.GetInput("Push after commit ? (y/n) : ") == "y";
             try
             {
+                int choose = int.Parse(Console.ReadLine());
+                if (choose == 0)
+                {
+                    ch.Output("See you.", ConsoleColor.DarkBlue);
+                    Environment.Exit(0);
+                }
+                bool push_afterAll = ch.GetInput("Push after commit ? (y/n) : ") == "y";
                 switch (choose)
                 {
                     case 1: Simply_Contribute(false, false); break;
@@ -42,6 +42,9 @@ namespace conconcon_tri_buter
                     case 4: Density_Contribute(true); break;
                     default: goto start;
                 }
+                ch.Output("\nStart Pushing ...", ConsoleColor.DarkMagenta);
+                if (push_afterAll) runGit(" push");
+                ch.Output("\nPush finished !", ConsoleColor.DarkMagenta);
             }
             catch (Exception e)
             {
@@ -50,9 +53,6 @@ namespace conconcon_tri_buter
                 anyException = true;
             }
             if (anyException) goto start;
-            ch.Output("\nStart Pushing ...", ConsoleColor.DarkMagenta);
-            if (push_afterAll) runGit(" push");
-            ch.Output("\nPush finished !", ConsoleColor.DarkMagenta);
             ch.GetInput("\n\nFinished! Go to your GitHub to see 13 !");
         }
 
