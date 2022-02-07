@@ -101,14 +101,14 @@ The menu currently has four items
 2. Simply contribute with random lively commit message
     Note: the function is similar to option 1, but the Commits r pseudo true messages. The format is as follows:
 
-  * type(scope): subject
+   * type(scope): subject
 
-  * Type: type (feat, fix, docs, style, refactor, test, chore)
+   * Type: type (feat, fix, docs, style, refactor, test, chore)
 
-  * Scope: change range, optional, mostly file name or directory
+   * Scope: change range, optional, mostly file name or directory
 
-  * Subject: a brief overview of changes and functions
-    (this template refers to [Ruan Yifeng's blog]( http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html ))
+   * Subject: a brief overview of changes and functions
+     (this template refers to [Ruan Yifeng's blog]( http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html ))
 
 3. Lively contribute with lively commit message
     Note: the function is similar to 'option 1', but it is allowed to manually set the start and end dates, and the Commits r pseudo true messages
