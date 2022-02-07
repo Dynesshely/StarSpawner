@@ -18,8 +18,8 @@
 </br>
 
 <p align="center">
-  <a href="#中文文档">中文</a> | <a href="#english-docs">English</a>
-已与 <a href="https://blog.catrol.cn/2022/02/07/save-your-github/" target="_blank">常青园晚 の 博客</a> 同步<br>
+  <a href="#中文文档">中文</a> | <a href="#english-docs">English</a><br>
+已与 <a href="https://blog.catrol.cn/2022/02/07/save-your-github/" target="_blank">常青园晚 の 博客</a> 同步
 </p>
 
 ------
