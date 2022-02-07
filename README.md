@@ -69,9 +69,7 @@ dotnet publish -r win-x86 -c release -p:PublishSingleFile=true -p:IncludeNativeL
 
 2. Simply contribute with random lively commit message
 
-   说明: 功能类似 `选项 1`, 但 Commits 为拟真消息, 格式如下:
-
-   * type(scope): subject
+   说明: 功能类似 `选项 1`, 但 Commits 为拟真消息, 格式: `type(scope): subject` 详解如下:
 
    * type: 类型 (feat, fix, docs, style, refactor, test, chore)
 
