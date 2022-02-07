@@ -20,8 +20,8 @@
 </br>
 
 <p align="center">
-已与 [https://blog.catrol.cn/2022/02/07/save-your-github/](https://blog.catrol.cn/2022/02/07/save-your-github/) 同步<br>
-[中文](#中文文档) | [English](#english-docs)
+已与 <a href="https://blog.catrol.cn/2022/02/07/save-your-github/">https://blog.catrol.cn/2022/02/07/save-your-github/</a> 同步<br>
+  <a href="#中文文档">中文</a> | <a href="#english-docs">English</a>
 </p>
 
 # 中文文档
