@@ -39,8 +39,11 @@ dotnet publish -r win-x86 -c release -p:PublishSingleFile=true -p:IncludeNativeL
 2. Simply contribute with random lively commit message
 3. Lively contribute with lively commit message
 4. Lively contribute with lively commit message with density
+<br>
 选择一项并回车
+<br>
 功能分别对应:
+<br>
 1. 从即日起前 n 天内每天提交 r 次 (r 可选固定不限次或是随机, 随机最多 40 次 (需要更多的请自行更改源码并编译) ), 并且提交消息为随机字符串
 2. 功能类似 `选项 1`, 并且提交消息为拟真消息, 格式如下:
   1. type(scope): subject
