@@ -31,7 +31,6 @@ namespace cctb_wpf
         {
             GraphInit();
             SourceInit();
-
         }
 
         private Dictionary<DateTime, Rectangle> source = new();
