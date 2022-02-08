@@ -8,6 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="back.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="back.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\conconcon-tri-buter\conconcon-tri-buter.csproj" />
   </ItemGroup>
 

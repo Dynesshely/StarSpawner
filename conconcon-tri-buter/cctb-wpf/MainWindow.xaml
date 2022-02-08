@@ -4,9 +4,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cctb_wpf"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        mc:Ignorable="d" ResizeMode="CanMinimize"
+        WindowStartupLocation="CenterScreen"
+        Title="cctb-wpf" Height="600" Width="960">
+
     <Grid>
-        <local:ContriGraph/>
+        <Image Source="/back.jpg" Stretch="UniformToFill" Margin="-10"
+               MouseDown="Image_MouseDown">
+            <Image.Effect>
+                <BlurEffect Radius="10" KernelType="Gaussian"/>
+            </Image.Effect>
+        </Image>
+        <local:ContriGraph x:Name="contriGraph" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20"
+                Content="初始化" Click="Button_Click_Init" Style="{StaticResource BtnInfoStyle}"/>
     </Grid>
 </Window>

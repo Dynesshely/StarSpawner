@@ -24,5 +24,15 @@ namespace cctb_wpf
         {
             InitializeComponent();
         }
+
+        private void Button_Click_Init(object sender, RoutedEventArgs e)
+        {
+            contriGraph.Init();
+        }
+
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed) DragMove();
+        }
     }
 }
