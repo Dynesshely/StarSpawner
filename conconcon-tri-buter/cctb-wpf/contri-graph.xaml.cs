@@ -18,47 +18,65 @@ namespace cctb_wpf
     /// <summary>
     /// contri_graph.xaml 的交互逻辑
     /// </summary>
-    public partial class contri_graph : UserControl
+    public partial class ContriGraph : UserControl
     {
 
-        public contri_graph()
+        public ContriGraph()
         {
             InitializeComponent();
-
             Init();
         }
 
         private void Init()
         {
-            Graph_Init();
-            Source_Init();
+            GraphInit();
+            SourceInit();
         }
 
         private Dictionary<DateTime, Rectangle> source = new();
 
-        public void Graph_Init()
+        public void GraphInit()
         {
             graph.Children.Clear();
             source.Clear();
         }
 
-        public void Source_Init()
+        public void SourceInit()
         {
-            // 按总天数生成
-            //int days = getDays(DateTime.Now.Year);
-            //for(int i = 1; i <= days; ++ i)
-            //{
-            //    source.Add(DateTime.Now.AddDays(1 - i), new Rectangle()
-            //    {
-            //        Width = 10, Height = 10, RadiusX = 5, RadiusY = 5
-            //    });
-            //}
-
             // 按标尺生成 (日标尺: 日/二/四/六)
-            int today = DateTime.Now.DayOfWeek
+            DateTime now = DateTime.Now;
+            int today = GetDayInWeek(now.DayOfWeek);
+            int hadDay = today == 7 ? 1 : today + 1;
+            int totalDays = (52 * 7) + hadDay;
+            for(int i = 0; i <= totalDays; ++ i)
+            {
+                source.Add(now.AddDays(-totalDays + i), new Rectangle()
+                {
+                    Width = 10, Height = 10, RadiusX = 5, RadiusY = 5
+                });
+            }
+            //string test = "";
+            //foreach (DateTime dt in source.Keys)
+            //    test += dt.ToString("yyyy-MM-dd") + " ";
+            //MessageBox.Show(test);
         }
 
-        private int getDays(int year)
+        private static int GetDayInWeek(DayOfWeek dow)
+        {
+            return dow.ToString() switch
+            {
+                "Monday" => 1,
+                "Tuesday" => 2,
+                "Wednesday" => 2,
+                "Thursday" => 2,
+                "Friday" => 2,
+                "Saturday" => 2,
+                "Sunday" => 2,
+                _ => -1,
+            };
+        }
+
+        private static int GetDays(int year)
         {
             bool run = (year % 4 == 0 && year % 100 != 0) || year % 400 == 0 ||
                 (year % 3200 == 0 && year % 172800 == 0);

@@ -6,7 +6,10 @@ namespace FunctionTest
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(DateTime.Now.DayOfWeek);
+            for(int i = 1; i <= 7; ++ i)
+            {
+                Console.WriteLine(DateTime.Now.AddDays(i).DayOfWeek);
+            }
         }
     }
 }
