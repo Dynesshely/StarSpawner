@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "conconcon-tri-buter", "conconcon-tri-buter\conconcon-tri-buter.csproj", "{B7574744-0196-4ACC-B020-3C16C901F30C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cctb-wpf", "cctb-wpf\cctb-wpf.csproj", "{7144406A-4394-49CA-B5DD-80EB50AF5457}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cctb-wpf", "cctb-wpf\cctb-wpf.csproj", "{7144406A-4394-49CA-B5DD-80EB50AF5457}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionTest", "FunctionTest\FunctionTest.csproj", "{F1E0812C-17D6-47FF-B139-8C599CC5668B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{7144406A-4394-49CA-B5DD-80EB50AF5457}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7144406A-4394-49CA-B5DD-80EB50AF5457}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7144406A-4394-49CA-B5DD-80EB50AF5457}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1E0812C-17D6-47FF-B139-8C599CC5668B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1E0812C-17D6-47FF-B139-8C599CC5668B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1E0812C-17D6-47FF-B139-8C599CC5668B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1E0812C-17D6-47FF-B139-8C599CC5668B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
