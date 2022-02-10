@@ -1,16 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace cctb_wpf
@@ -36,8 +27,15 @@ namespace cctb_wpf
         /// <param name="dt"><日期/param>
         public delegate void SelectDelegate(DateTime dt);
         public event SelectDelegate SelectEvent;
+        /// <summary>
+        /// 取消选择事件
+        /// </summary>
+        /// <param name="dt">日期</param>
         public delegate void UnSelectDelegate(DateTime dt);
         public event UnSelectDelegate UnSelectEvent;
+        /// <summary>
+        /// 数据相关事件
+        /// </summary>
         private delegate void DataDelegate();
         private event DataDelegate DataChanged;
         #endregion
@@ -50,7 +48,9 @@ namespace cctb_wpf
         public Dictionary<DateTime, bool> selected = new(); // 所有 dt 的选择情况
         public Dictionary<string, List<DateTime>> month_dts = new(); // 按月收集的 dt
         public Dictionary<string, bool> month_allin = new(); // 按月是否全部选择
-        public List<DateTime> selected_dts = new(); // 已经选择的 dt 
+        public List<DateTime> selected_dts = new(); // 已经选择的 dt
+        public DateTime[][] day_dts = new DateTime[8][]; // 按天收集的 dt
+        public bool[][] day_allin = new bool[8][]; // 按天是否全部选择
         #endregion
 
         #region 颜色预定义
@@ -81,7 +81,35 @@ namespace cctb_wpf
         private static SolidColorBrush Block_Fill_Normal = new()
         {
             Color = Colors.Transparent
-        }; 
+        };
+        /// <summary>
+        /// 提交背景 - 少
+        /// </summary>
+        private static SolidColorBrush Block_Fill_Less = new()
+        {
+            Color = Colors.DarkGreen
+        };
+        /// <summary>
+        /// 提交背景 - 中下
+        /// </summary>
+        private static SolidColorBrush Block_Fill_Medium_Less = new()
+        {
+            Color = Colors.ForestGreen
+        };
+        /// <summary>
+        /// 提交背景 - 中上
+        /// </summary>
+        private static SolidColorBrush Block_Fill_Medium_More = new()
+        {
+            Color = Colors.DarkSeaGreen
+        };
+        /// <summary>
+        /// 提交背景 - 多
+        /// </summary>
+        private static SolidColorBrush Block_Fill_More = new()
+        {
+            Color = Colors.LightGreen
+        };
         #endregion
 
         #region 初始化
@@ -198,6 +226,20 @@ namespace cctb_wpf
             Canvas.SetTop(rr_5, 5 * size + 5 * padding);
         }
 
+        #region 数据相关操作
+        /// <summary>
+        /// 按提交数进行颜色分级
+        /// </summary>
+        /// <param name="cnum">提交次数</param>
+        private static SolidColorBrush CommitColorGrade(int cnum)
+        {
+            if (cnum == 0) return Block_Fill_Normal;
+            else if (cnum > 0 && cnum < 10) return Block_Fill_Less;
+            else if (cnum < 30) return Block_Fill_Medium_Less;
+            else if (cnum < 70) return Block_Fill_Medium_More;
+            else return Block_Fill_More;
+        }
+
         /// <summary>
         /// 数据监视器
         /// </summary>
@@ -207,14 +249,33 @@ namespace cctb_wpf
             DataChanged += () =>
             {
                 source[dt].ToolTip = $"{dt:yyyy-MM-dd} : {commits[dt]} commits";
+                source[dt].Fill = CommitColorGrade(commits[dt]);
             };
         }
 
+        /// <summary>
+        /// 增加提交数
+        /// </summary>
+        /// <param name="dt">日期</param>
+        /// <param name="num">数量</param>
         public void AddCommit(DateTime dt, int num)
         {
             commits[dt] += num;
             DataChanged.Invoke();
         }
+
+        /// <summary>
+        /// 设置提交数
+        /// </summary>
+        /// <param name="dt">日期</param>
+        /// <param name="num">数量</param>
+        public void SetCommit(DateTime dt, int num)
+        {
+            if (num < 0) throw new InvalidOperationException("提交数不能小于零");
+            commits[dt] = num;
+            DataChanged.Invoke();
+        } 
+        #endregion
 
         #region 初始化事件
         /// <summary>

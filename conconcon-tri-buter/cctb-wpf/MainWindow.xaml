@@ -6,7 +6,11 @@
         xmlns:local="clr-namespace:cctb_wpf"
         mc:Ignorable="d" ResizeMode="CanMinimize"
         WindowStartupLocation="CenterScreen"
+        Topmost="{Binding ElementName=Window_Top, Path=IsChecked}"
         Title="cctb-wpf" Height="600" Width="980">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Window.Resources>
 
     <Grid>
         <Image Source="/back.jpg" Stretch="UniformToFill" Margin="-10">
@@ -38,13 +42,55 @@
                     <DropShadowEffect BlurRadius="15"/>
                 </Border.Effect>
             </Border>
-            
+            <ScrollViewer Margin="10">
+                <StackPanel Margin="10">
+                    <GroupBox Header="提交相关操作" Foreground="WhiteSmoke">
+                        <StackPanel Margin="10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="6*"/>
+                                </Grid.ColumnDefinitions>
+                                <Button Content="设置值" Click="Button_Click_SetValue"
+                                Height="30"
+                                Style="{StaticResource BtnOptionStyle}"/>
+                                <TextBox x:Name="commits_num" Grid.Column="2"
+                                 Text="0" TextAlignment="Center"
+                                 Height="30" FontSize="22"/>
+                            </Grid>
+                            <Label/>
+                            <RadioButton GroupName="modeSel" Content="1. 所选日期简单提交 (可选拟真消息)" Foreground="WhiteSmoke" IsChecked="True"/>
+                            <Label/>
+                            <RadioButton x:Name="radioButton" GroupName="modeSel" Content="2. 所选日期带密度提交 (可选拟真消息)" Foreground="WhiteSmoke"/>
+                            <Label/>
+                            <StackPanel Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=radioButton}">
+                                <RadioButton GroupName="denMode" Margin="20,0,0,0" Content="正态分布随机数" Foreground="WhiteSmoke" IsChecked="True"/>
+                                <Label/>
+                                <RadioButton GroupName="denMode" Margin="20,0,0,0" Content="指数分布随机数" Foreground="WhiteSmoke" IsEnabled="False"/>
+                                <Label/>
+                                <RadioButton GroupName="denMode" Margin="20,0,0,0" Content="泊松分布产生" Foreground="WhiteSmoke" IsEnabled="False"/>
+                                <Label/>
+                            </StackPanel>
+                            <CheckBox Content="包含浮动" Foreground="WhiteSmoke"/>
+                            <Label/>
+                            <Button Content="开始提交"
+                                Height="40"
+                                Style="{StaticResource BtnInfoStyle}"/>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+            </ScrollViewer>
         </Grid>
         <Button HorizontalAlignment="Left" VerticalAlignment="Bottom"
                 Margin="20" Height="40" FontSize="16" Content="初始化"
                 Click="Button_Click_Init" Style="{StaticResource BtnInfoStyle}"/>
         <Button HorizontalAlignment="Left" VerticalAlignment="Bottom"
                 Margin="120,0,0,20" Height="40" FontSize="16"
-                Content="清空" Style="{StaticResource BtnOptionStyle}"/>
+                Content="清空" Style="{StaticResource BtnOptionStyle}"
+                Click="Button_Click_UnSelectAll"/>
+        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                  Margin="200,0,0,20" Height="40" Content="置顶"
+                  Foreground="WhiteSmoke" x:Name="Window_Top"/>
     </Grid>
 </Window>

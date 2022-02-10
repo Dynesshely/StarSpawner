@@ -20,18 +20,20 @@ namespace cctb_wpf
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Dictionary<DateTime, string> selections = new();
+        private List<DateTime> selections = new();
 
         public MainWindow()
         {
             InitializeComponent();
             contriGraph.SelectEvent += (x) =>
             {
-                SelectedDates.Items.Add(x.ToString("yyyy-MM-dd tt"));
+                SelectedDates.Items.Add(x.ToString("yyyy-MM-dd"));
+                selections.Add(x);
             };
             contriGraph.UnSelectEvent += (x) =>
             {
-                SelectedDates.Items.Remove(x.ToString("yyyy-MM-dd tt"));
+                SelectedDates.Items.Remove(x.ToString("yyyy-MM-dd"));
+                selections.Remove(x);
             };
             KeyDown += (_, y) =>
             {
@@ -49,6 +51,22 @@ namespace cctb_wpf
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed) DragMove();
+        }
+
+        private void Button_Click_UnSelectAll(object sender, RoutedEventArgs e)
+        {
+            contriGraph.UnSelectAll();
+        }
+
+        private void Button_Click_SetValue(object sender, RoutedEventArgs e)
+        {
+            foreach (DateTime dt in selections)
+            {
+                if (int.TryParse(commits_num.Text, out int cnum))
+                    contriGraph.SetCommit(dt, cnum);
+                else MessageBox.Show("非法的提交数", "错误",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
