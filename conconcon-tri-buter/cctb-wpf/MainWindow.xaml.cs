@@ -20,8 +20,14 @@ namespace cctb_wpf
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// 已经选择的日期
+        /// </summary>
         private List<DateTime> selections = new();
 
+        /// <summary>
+        /// 主窗口构造函数
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
@@ -42,22 +48,42 @@ namespace cctb_wpf
             };
         }
 
+        /// <summary>
+        /// 初始化按钮事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click_Init(object sender, RoutedEventArgs e)
         {
             contriGraph.Init();
             SelectedDates.Items.Clear();
         }
 
+        /// <summary>
+        /// 拖动窗口
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed) DragMove();
         }
 
+        /// <summary>
+        /// 取消全选
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click_UnSelectAll(object sender, RoutedEventArgs e)
         {
             contriGraph.UnSelectAll();
         }
 
+        /// <summary>
+        /// 设置值
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click_SetValue(object sender, RoutedEventArgs e)
         {
             foreach (DateTime dt in selections)
@@ -67,6 +93,32 @@ namespace cctb_wpf
                 else MessageBox.Show("非法的提交数", "错误",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        /// <summary>
+        /// 开始提交
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click_StartCommit(object sender, RoutedEventArgs e)
+        {
+            ContriGraph cgtmp = new(contriGraph.BaseDT);
+            foreach (DateTime dt in contriGraph.source.Keys)
+            {
+                if(contriGraph.commits[dt] != 0)
+                    cgtmp.SetCommit(dt, contriGraph.commits[dt]);
+            }
+            new Window()
+            {
+                Title = "确认",
+                Content = cgtmp,
+                SizeToContent = SizeToContent.Width,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen,
+                Background = new SolidColorBrush()
+                {
+                    Color = Colors.Black
+                }
+            }.Show();
         }
     }
 }

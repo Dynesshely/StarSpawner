@@ -12,11 +12,31 @@ namespace cctb_wpf
     public partial class ContriGraph : UserControl
     {
         /// <summary>
+        /// 是否拥有基准日期
+        /// </summary>
+        private bool hadBDT = false;
+        /// <summary>
+        /// 基准日期
+        /// </summary>
+        public DateTime BaseDT;
+
+        /// <summary>
         /// 构造函数
         /// </summary>
         public ContriGraph()
         {
             InitializeComponent();
+            Init();
+        }
+
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        public ContriGraph(DateTime baseDt)
+        {
+            InitializeComponent();
+            hadBDT = true;
+            BaseDT = baseDt;
             Init();
         }
 
@@ -87,28 +107,28 @@ namespace cctb_wpf
         /// </summary>
         private static SolidColorBrush Block_Fill_Less = new()
         {
-            Color = Colors.DarkGreen
+            Color = Color.FromRgb(14, 68, 41)
         };
         /// <summary>
         /// 提交背景 - 中下
         /// </summary>
         private static SolidColorBrush Block_Fill_Medium_Less = new()
         {
-            Color = Colors.ForestGreen
+            Color = Color.FromRgb(0, 109, 50)
         };
         /// <summary>
         /// 提交背景 - 中上
         /// </summary>
         private static SolidColorBrush Block_Fill_Medium_More = new()
         {
-            Color = Colors.DarkSeaGreen
+            Color = Color.FromRgb(38, 166, 65)
         };
         /// <summary>
         /// 提交背景 - 多
         /// </summary>
         private static SolidColorBrush Block_Fill_More = new()
         {
-            Color = Colors.LightGreen
+            Color = Color.FromRgb(57, 211, 83)
         };
         #endregion
 
@@ -120,7 +140,6 @@ namespace cctb_wpf
         {
             GraphInit();
             SourceInit();
-            //for (int i = 1; i <= 7; ++i) graph_map[i] = new DateTime[54];
             DrawGraph();
         }
 
@@ -136,7 +155,6 @@ namespace cctb_wpf
             month_dts.Clear();
             month_allin.Clear();
             selected_dts.Clear();
-            //graph_map = new DateTime[8][];
         }
 
         /// <summary>
@@ -145,7 +163,8 @@ namespace cctb_wpf
         public void SourceInit()
         {
             // 按标尺生成 (日标尺: 日/二/四/六)
-            DateTime now = DateTime.Now;
+            DateTime now = hadBDT ? BaseDT : DateTime.Now; // 是否按照基准生成
+            if (!hadBDT) BaseDT = now;
             today = GetDayInWeek(now.DayOfWeek);
             hadDay = TurnWeekDayToIndex(today);
             totalDays = (52 * 7) + hadDay;
@@ -157,19 +176,19 @@ namespace cctb_wpf
                 selected.Add(rt_dt, false); // 设置为未选中
                 Rectangle rt = new Rectangle()
                 {
-                    Width = size,
-                    Height = size,
-                    RadiusX = radius,
-                    RadiusY = radius, // 大小圆角
-                    Stroke = Block_Stroke_Normal,
-                    Fill = Block_Fill_Normal,
-                    ToolTip = $"{rt_dt:yyyy-MM-dd} : {commits[rt_dt]} commits",
-                    StrokeThickness = 1
+                    Width = size, // 宽度
+                    Height = size, // 高度
+                    RadiusX = radius, // 水平圆角
+                    RadiusY = radius, // 垂直圆角
+                    Stroke = Block_Stroke_Normal, // 边框
+                    Fill = Block_Fill_Normal, // 填充
+                    ToolTip = $"{rt_dt:yyyy-MM-dd} : {commits[rt_dt]} commits", // 提示
+                    StrokeThickness = 1 // 边框粗细
                 };
                 source.Add(rt_dt, rt);
                 Block_EventInit(rt_dt);
             }
-        } 
+        }
         #endregion
 
         /// <summary>
@@ -356,7 +375,7 @@ namespace cctb_wpf
                 rt.Stroke = Block_Stroke_Selected;
                 selected[dt] = true;
                 selected_dts.Add(dt);
-                SelectEvent.Invoke(dt);
+                SelectEvent?.Invoke(dt);
             }
         }
 
@@ -380,7 +399,7 @@ namespace cctb_wpf
                 rt.Stroke = Block_Stroke_Normal;
                 selected[dt] = false;
                 selected_dts.Remove(dt);
-                UnSelectEvent.Invoke(dt);
+                UnSelectEvent?.Invoke(dt);
             }
         }
 

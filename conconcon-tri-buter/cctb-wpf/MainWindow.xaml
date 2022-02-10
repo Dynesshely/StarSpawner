@@ -65,17 +65,32 @@
                             <RadioButton x:Name="radioButton" GroupName="modeSel" Content="2. 所选日期带密度提交 (可选拟真消息)" Foreground="WhiteSmoke"/>
                             <Label/>
                             <StackPanel Visibility="{Binding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=radioButton}">
-                                <RadioButton GroupName="denMode" Margin="20,0,0,0" Content="正态分布随机数" Foreground="WhiteSmoke" IsChecked="True"/>
+                                <Grid Margin="20,0,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="120"/>
+                                        <ColumnDefinition Width="90"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="130"/>
+                                    </Grid.ColumnDefinitions>
+                                    <RadioButton Grid.Column="0" GroupName="denMode" Content="1. 正态分布随机数" Foreground="WhiteSmoke" IsChecked="True"
+                                                 VerticalAlignment="Center" x:Name="nor_distribution_radiobutton"/>
+                                    <Label Grid.Column="1" Content="密度 (0 ~ 1) :" Foreground="WhiteSmoke"
+                                           VerticalAlignment="Center" Visibility="{Binding IsChecked, ElementName=nor_distribution_radiobutton, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                    <Slider x:Name="denisty_slider" Grid.Column="2" VerticalAlignment="Center"
+                                            Minimum="0" Maximum="1" SmallChange="0.001" Value="0.3" Visibility="{Binding IsChecked, ElementName=nor_distribution_radiobutton, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                    <TextBlock Grid.Column="3" VerticalAlignment="Center" Foreground="WhiteSmoke"
+                                               Text="{Binding Value, ElementName=denisty_slider}" Visibility="{Binding IsChecked, ElementName=nor_distribution_radiobutton, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                </Grid>
                                 <Label/>
-                                <RadioButton GroupName="denMode" Margin="20,0,0,0" Content="指数分布随机数" Foreground="WhiteSmoke" IsEnabled="False"/>
+                                <RadioButton GroupName="denMode" Margin="20,0,0,0" Content="2. 指数分布随机数" Foreground="WhiteSmoke" IsEnabled="False"/>
                                 <Label/>
-                                <RadioButton GroupName="denMode" Margin="20,0,0,0" Content="泊松分布产生" Foreground="WhiteSmoke" IsEnabled="False"/>
+                                <RadioButton GroupName="denMode" Margin="20,0,0,0" Content="3. 泊松分布产生" Foreground="WhiteSmoke" IsEnabled="False"/>
                                 <Label/>
                             </StackPanel>
                             <CheckBox Content="包含浮动" Foreground="WhiteSmoke"/>
                             <Label/>
                             <Button Content="开始提交"
-                                Height="40"
+                                Height="40" Click="Button_Click_StartCommit"
                                 Style="{StaticResource BtnInfoStyle}"/>
                         </StackPanel>
                     </GroupBox>
