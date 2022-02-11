@@ -10,12 +10,18 @@
     <Compile Update="contri-graph.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="StartCommitWin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="contri-graph.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="StartCommitWin.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

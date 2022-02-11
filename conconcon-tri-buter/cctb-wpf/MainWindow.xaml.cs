@@ -102,23 +102,17 @@ namespace cctb_wpf
         /// <param name="e"></param>
         private void Button_Click_StartCommit(object sender, RoutedEventArgs e)
         {
-            ContriGraph cgtmp = new(contriGraph.BaseDT);
-            foreach (DateTime dt in contriGraph.source.Keys)
+            ContriGraph cgtmp = new(contriGraph.BaseDT)
             {
+                VerticalAlignment = VerticalAlignment.Top,
+                IsEnabled = false
+            };
+            foreach (DateTime dt in contriGraph.source.Keys)
                 if(contriGraph.commits[dt] != 0)
                     cgtmp.SetCommit(dt, contriGraph.commits[dt]);
-            }
-            new Window()
-            {
-                Title = "确认",
-                Content = cgtmp,
-                SizeToContent = SizeToContent.Width,
-                WindowStartupLocation = WindowStartupLocation.CenterScreen,
-                Background = new SolidColorBrush()
-                {
-                    Color = Colors.Black
-                }
-            }.Show();
+            StartCommitWin scw = new();
+            scw.rootGrid.Children.Add(cgtmp);
+            scw.ShowDialog();
         }
     }
 }

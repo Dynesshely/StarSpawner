@@ -14,7 +14,7 @@ namespace cctb_wpf
         /// <summary>
         /// 是否拥有基准日期
         /// </summary>
-        private bool hadBDT = false;
+        public bool hadBDT = false;
         /// <summary>
         /// 基准日期
         /// </summary>
@@ -150,11 +150,19 @@ namespace cctb_wpf
         {
             graph.Children.Clear();
             source.Clear();
+            source = new();
             commits.Clear();
+            commits = new();
             selected.Clear();
+            selected = new();
             month_dts.Clear();
+            month_dts = new();
             month_allin.Clear();
+            month_allin = new();
             selected_dts.Clear();
+            selected_dts = new();
+            day_dts = new DateTime[8][];
+            day_allin = new bool[8][];
         }
 
         /// <summary>
@@ -306,8 +314,9 @@ namespace cctb_wpf
             Rectangle rt = source[dt];
             rt.MouseDown += (_, _) =>
             {
-                if (selected[dt]) UnSelect(dt);
-                else Select(dt);
+                if (IsEnabled)
+                    if (selected[dt]) UnSelect(dt);
+                    else Select(dt);
             };
         }
 
@@ -319,32 +328,37 @@ namespace cctb_wpf
         {
             tb.MouseEnter += (_, _) =>
             {
-                foreach (DateTime dt in source.Keys)
-                    if (dt.ToString("yyyy-MM").Equals(tb.Tag.ToString()))
-                        source[dt].Stroke = Block_Stroke_Highlight;
+                if(IsEnabled)
+                    foreach (DateTime dt in source.Keys)
+                        if (dt.ToString("yyyy-MM").Equals(tb.Tag.ToString()))
+                            source[dt].Stroke = Block_Stroke_Highlight;
             };
             tb.MouseLeave += (_, _) =>
             {
-                foreach (DateTime dt in source.Keys)
-                {
-                    if (dt.ToString("yyyy-MM").Equals(tb.Tag.ToString()))
-                        source[dt].Stroke = Block_Stroke_Normal;
-                    if (selected[dt])
-                        source[dt].Stroke = Block_Stroke_Selected;
-                }
+                if (IsEnabled)
+                    foreach (DateTime dt in source.Keys)
+                    {
+                        if (dt.ToString("yyyy-MM").Equals(tb.Tag.ToString()))
+                            source[dt].Stroke = Block_Stroke_Normal;
+                        if (selected[dt])
+                            source[dt].Stroke = Block_Stroke_Selected;
+                    }
             };
             tb.MouseDown += (_, _) =>
             {
-                string m_auth = tb.Tag.ToString();
-                if (!month_allin[m_auth])
+                if (IsEnabled)
                 {
-                    foreach (DateTime dt in month_dts[m_auth]) Select(dt);
-                    month_allin[m_auth] = true;
-                }
-                else
-                {
-                    foreach (DateTime dt in month_dts[m_auth]) UnSelect(dt);
-                    month_allin[m_auth] = false;
+                    string m_auth = tb.Tag.ToString();
+                    if (!month_allin[m_auth])
+                    {
+                        foreach (DateTime dt in month_dts[m_auth]) Select(dt);
+                        month_allin[m_auth] = true;
+                    }
+                    else
+                    {
+                        foreach (DateTime dt in month_dts[m_auth]) UnSelect(dt);
+                        month_allin[m_auth] = false;
+                    }
                 }
             };
         }
