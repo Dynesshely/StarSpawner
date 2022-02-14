@@ -22,6 +22,10 @@ namespace cctb_wpf
         public StartCommitWin()
         {
             InitializeComponent();
+        }
+
+        public void operation(ContriGraph cg)
+        {
             TextBox tb = new()
             {
                 IsReadOnly = true,
@@ -29,7 +33,16 @@ namespace cctb_wpf
                 Foreground = new SolidColorBrush()
                 {
                     Color = Colors.WhiteSmoke
+                },
+                Background = new SolidColorBrush()
+                {
+                    Color = Colors.Transparent
                 }
+            };
+            ScrollViewer sv = new()
+            {
+                Content = tb,
+                Margin = new Thickness(10)
             };
             Window log_win = new()
             {
@@ -42,19 +55,36 @@ namespace cctb_wpf
                 {
                     Color = Colors.Black
                 },
-                Content = tb
+                Content = sv
             };
-            LogDelegate log = delegate(string content)
+            LogDelegate log = delegate (string content)
             {
-                tb.Text += $"\n{content}";
+                tb.Text += $"{content}";
             };
-            
-            Activated += (_, _) =>
+            log_win.Show();
+            log("开始装逼!\n");
+            int index = 1;
+            foreach (DateTime item in cg.source.Keys)
             {
-                log_win.Show();
-                log("开始装逼!");
+                if (cg.commits[item] != 0)
+                {
+                    log($"\n{index}. 开始生成: {item:yyyy-MM-dd}\n");
+                    for(int i = 1; i <= cg.commits[item]; ++ i)
+                    {
+                        log($"\t{i}. fn: {conconcon_tri_buter.Program.randomname()}\n" +
+                            $"\tmessage: {conconcon_tri_buter.LivelyMessage.GetLivelyMessage()}\n");
+                        // {Pro_space(i.ToString().Length)}
+                    }
+                    ++index;
+                }
+            }
+        }
 
-            };
+        private string Pro_space(int num)
+        {
+            string rst = "";
+            for (int i = 0; i < num; ++i) rst += ' ';
+            return rst;
         }
 
         private delegate void LogDelegate(string content);

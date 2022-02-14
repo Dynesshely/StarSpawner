@@ -124,7 +124,8 @@ namespace cctb_wpf
                         Foreground = ContriGraph.Block_Stroke_Normal
                     });
                 }
-            scw.ShowDialog();
+            scw.operation(cgtmp);
+            scw.Show();
         }
     }
 }

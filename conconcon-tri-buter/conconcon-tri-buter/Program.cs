@@ -8,7 +8,7 @@ using ch = conconcon_tri_buter.ConsoleHelper;
 
 namespace conconcon_tri_buter
 {
-    class Program
+    public class Program
     {
         /// <summary>
         /// 主函数
@@ -208,7 +208,7 @@ namespace conconcon_tri_buter
         /// 随机名称
         /// </summary>
         /// <returns>名称字符串</returns>
-        private static string randomname()
+        public static string randomname()
         {
             int length = 8;
             string rst = "";
