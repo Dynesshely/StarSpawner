@@ -159,6 +159,41 @@ namespace conconcon_tri_buter
         }
 
         /// <summary>
+        /// 生成文件并提交, 删除文件并提交
+        /// </summary>
+        /// <param name="dt">日期</param>
+        /// <param name="lively_message">是否启用拟真消息</param>
+        private static void generatefile(DateTime dt, bool lively_message, bool commit_when_delete, string rootDir)
+        {
+            string fn = $"{rootDir}\\{randomname()}.txt";
+
+            Console.WriteLine($"generate: {Path.GetFileName(fn)}");
+
+            if (File.Exists(fn))
+                File.Delete(fn);
+            FileStream fs = File.Create(fn);
+            StreamWriter sw = new(fs);
+            sw.WriteLine(randomname());
+            sw.Flush();
+            sw.Close(); fs.Close();
+
+            string message = get_lively_message();
+
+            if (lively_message) specialCommit(dt, message);
+            else normalCommit(dt);
+
+            File.Delete(fn);
+
+            if (commit_when_delete)
+            {
+                if (lively_message) specialCommit(dt, message);
+                else normalCommit(dt);
+            }
+
+            Console.WriteLine($"delete: {Path.GetFileName(fn)}");
+        }
+
+        /// <summary>
         /// 获取一条拟真消息
         /// </summary>
         /// <returns>拟真消息</returns>

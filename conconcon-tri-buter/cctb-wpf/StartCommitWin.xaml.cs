@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -63,20 +64,40 @@ namespace cctb_wpf
             };
             log_win.Show();
             log("开始装逼!\n");
-            int index = 1;
-            foreach (DateTime item in cg.source.Keys)
+            Microsoft.Win32.OpenFileDialog ofd = new()
             {
-                if (cg.commits[item] != 0)
+                Multiselect = false,
+                Title = "选择 HEAD 文件 (在 .git 文件夹下)",
+                Filter = "HEAD | HEAD 文件",
+                InitialDirectory = Environment.CurrentDirectory
+            };
+            ofd.ShowDialog();
+            if (ofd.FileName != null)
+            {
+                FileInfo head = new(ofd.FileName);
+                DirectoryInfo _git = head.Directory;
+                DirectoryInfo rootDir = _git.Parent;
+                string rootPath = rootDir.FullName;
+                int index = 1;
+                foreach (DateTime item in cg.source.Keys)
                 {
-                    log($"\n{index}. 开始生成: {item:yyyy-MM-dd}\n");
-                    for(int i = 1; i <= cg.commits[item]; ++ i)
+                    if (cg.commits[item] != 0)
                     {
-                        log($"\t{i}. fn: {conconcon_tri_buter.Program.randomname()}\n" +
-                            $"\tmessage: {conconcon_tri_buter.LivelyMessage.GetLivelyMessage()}\n");
-                        // {Pro_space(i.ToString().Length)}
+                        log($"\n{index}. 开始生成: {item:yyyy-MM-dd}\n");
+                        for (int i = 1; i <= cg.commits[item]; ++i)
+                        {
+                            log($"\t{i}. fn: {conconcon_tri_buter.Program.randomname()}\n" +
+                                $"\tmessage: {conconcon_tri_buter.LivelyMessage.GetLivelyMessage()}\n");
+                            
+                        }
+                        ++index;
                     }
-                    ++index;
                 }
+            }
+            else
+            {
+                MessageBox.Show("没有选择正确的路径, 程序退出");
+                Environment.Exit(1);
             }
         }
 
