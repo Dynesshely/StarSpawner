@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Threading;
 
 namespace cctb_wpf
 {
@@ -68,32 +69,35 @@ namespace cctb_wpf
             {
                 Multiselect = false,
                 Title = "选择 HEAD 文件 (在 .git 文件夹下)",
-                Filter = "HEAD | HEAD 文件",
+                Filter = "HEAD 文件 | HEAD | 全部文件 | *.*",
                 InitialDirectory = Environment.CurrentDirectory
             };
             ofd.ShowDialog();
-            if (ofd.FileName != null)
+            if (ofd.FileName != "")
             {
-                FileInfo head = new(ofd.FileName);
-                DirectoryInfo _git = head.Directory;
-                DirectoryInfo rootDir = _git.Parent;
-                string rootPath = rootDir.FullName;
-                int index = 1;
-                foreach (DateTime item in cg.source.Keys)
+                new Thread(() =>
                 {
-                    if (cg.commits[item] != 0)
+                    FileInfo head = new(ofd.FileName);
+                    DirectoryInfo _git = head.Directory;
+                    DirectoryInfo rootDir = _git.Parent;
+                    string rootPath = rootDir.FullName;
+                    int index = 1;
+                    foreach (DateTime item in cg.source.Keys)
                     {
-                        log($"\n{index}. 开始生成: {item:yyyy-MM-dd}\n");
-                        for (int i = 1; i <= cg.commits[item]; ++i)
+                        if (cg.commits[item] != 0)
                         {
-                            string msg = conconcon_tri_buter.LivelyMessage.GetLivelyMessage();
-                            log($"\t{i}. fn: {conconcon_tri_buter.Program.randomname()}\n" +
-                                $"\tmessage: {msg}\n");
-                            conconcon_tri_buter.Program.generatefile(item, msg, false, rootPath);
+                            log($"\n{index}. 开始生成: {item:yyyy-MM-dd}\n");
+                            for (int i = 1; i <= cg.commits[item]; ++i)
+                            {
+                                string msg = conconcon_tri_buter.LivelyMessage.GetLivelyMessage();
+                                log($"\t{i}. fn: {conconcon_tri_buter.Program.randomname()}\n" +
+                                    $"\tmessage: {msg}\n");
+                                conconcon_tri_buter.Program.generatefile(item, msg, false, rootPath);
+                            }
+                            ++index;
                         }
-                        ++index;
                     }
-                }
+                }).Start();
             }
             else
             {
