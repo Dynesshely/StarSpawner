@@ -61,7 +61,10 @@ namespace cctb_wpf
             };
             LogDelegate log = delegate (string content)
             {
-                tb.Text += $"{content}";
+                Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    tb.Text += $"{content}";
+                }));
             };
             log_win.Show();
             log("开始装逼!\n");
