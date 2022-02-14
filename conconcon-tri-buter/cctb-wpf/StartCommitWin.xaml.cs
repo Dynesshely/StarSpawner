@@ -22,6 +22,41 @@ namespace cctb_wpf
         public StartCommitWin()
         {
             InitializeComponent();
+            TextBox tb = new()
+            {
+                IsReadOnly = true,
+                Margin = new Thickness(10),
+                Foreground = new SolidColorBrush()
+                {
+                    Color = Colors.WhiteSmoke
+                }
+            };
+            Window log_win = new()
+            {
+                Title = "提交日志",
+                Left = 10,
+                Top = 10,
+                Width = 400,
+                Height = 225,
+                Background = new SolidColorBrush()
+                {
+                    Color = Colors.Black
+                },
+                Content = tb
+            };
+            LogDelegate log = delegate(string content)
+            {
+                tb.Text += $"\n{content}";
+            };
+            
+            Activated += (_, _) =>
+            {
+                log_win.Show();
+                log("开始装逼!");
+
+            };
         }
+
+        private delegate void LogDelegate(string content);
     }
 }
