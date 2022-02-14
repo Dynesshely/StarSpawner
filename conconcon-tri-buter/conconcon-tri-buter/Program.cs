@@ -163,7 +163,7 @@ namespace conconcon_tri_buter
         /// </summary>
         /// <param name="dt">日期</param>
         /// <param name="lively_message">是否启用拟真消息</param>
-        private static void generatefile(DateTime dt, bool lively_message, bool commit_when_delete, string rootDir)
+        public static void generatefile(DateTime dt, string lively_message, bool commit_when_delete, string rootDir)
         {
             string fn = $"{rootDir}\\{randomname()}.txt";
 
@@ -177,18 +177,12 @@ namespace conconcon_tri_buter
             sw.Flush();
             sw.Close(); fs.Close();
 
-            string message = get_lively_message();
-
-            if (lively_message) specialCommit(dt, message);
-            else normalCommit(dt);
+            specialCommit(dt, lively_message);
 
             File.Delete(fn);
 
             if (commit_when_delete)
-            {
-                if (lively_message) specialCommit(dt, message);
-                else normalCommit(dt);
-            }
+                specialCommit(dt, lively_message);
 
             Console.WriteLine($"delete: {Path.GetFileName(fn)}");
         }

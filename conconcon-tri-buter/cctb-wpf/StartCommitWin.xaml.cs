@@ -86,9 +86,10 @@ namespace cctb_wpf
                         log($"\n{index}. 开始生成: {item:yyyy-MM-dd}\n");
                         for (int i = 1; i <= cg.commits[item]; ++i)
                         {
+                            string msg = conconcon_tri_buter.LivelyMessage.GetLivelyMessage();
                             log($"\t{i}. fn: {conconcon_tri_buter.Program.randomname()}\n" +
-                                $"\tmessage: {conconcon_tri_buter.LivelyMessage.GetLivelyMessage()}\n");
-                            
+                                $"\tmessage: {msg}\n");
+                            conconcon_tri_buter.Program.generatefile(item, msg, false, rootPath);
                         }
                         ++index;
                     }
