@@ -27,7 +27,7 @@
 | 目前 🎠 | Hi there 🎠 |
 | ----- | ----- |
 | 🍔 控制台应用暂缓开发, 功能较为齐全 | 🍔 Development of Console App paused, it had got more complete functions |
-| 🥓 正在积极开发图形化版本, 以期达到方便易用 | 🥓 A graphical version is being actively developed for ease of use |
+| 🥓 [图形化版本](#GraphicalVersion)大体完毕, 期待使用 | 🥓 Graphical version is mostly developed, welcome to test it |
 | 🎉 多多支持呀 ! | 🎉 Support us ! |
 
 ------
@@ -176,3 +176,48 @@ The menu currently has four items
 ## 🎢 How it works
 
 The git commit command allows the use of the `--date` parameter to specify the commit date, and GitHub calculates Contributions by the date of Commits. This program repeats the process of "creating files, specifying commit dates, committing, and deleting" this process, to make your GitHub fake. Contributions look awesome!
+
+# GraphicalVersion
+
+<p align="center">
+  🌐 <a href="#-图形版本中文文档">中文</a> | <a href="#-graphical-english-docs">English</a><br>
+尚未与 🅱️ <a href="https://blog.catrol.cn/2022/02/07/save-your-github/" target="_blank">常青园晚 の 博客</a> 同步
+</p>
+
+## 🎞️ 图形版本中文文档
+### ⚒️ 先决条件
+首先确保你的仓库可以正确满足控制台版本(即: conconcon-tri-buter.exe)的所有要求与先决条件, 再尝试满足图形版本的使用
+
+### 🧭 如何使用
+1. 拷贝最新的 Release cctb-wpf.zip 中的两个程序至 .git 文件夹所在根目录
+2. 执行 cctb-wpf.exe
+3. 选择所要提交的日期, 并设置提交数
+4. 开始提交
+
+### 🪦 发布
+确保 clone 完整源码, 保证 `cctb-wpf` 与 `conconcon-tri-buter` 两个项目源码完整, 并置于同一目录下 <br>
+使用命令行工具 (cmd / powershell) 切换目录至 `cctb-wpf` 目录下<br>
+执行:
+``` PS
+dotnet publish -r win-x64 -p:PublishSingleFile=true --self-contained false
+```
+`-r` 参数可替换选项与 控制台版本 一致, 参见本 README.md 前文部分
+
+## 🎞️ Graphical English Docs
+### ⚒️ Prerequisites
+Make sure your config is ready for conconcon-tri-buter.exe (Console Version) first, then Graphical Version
+
+### 🧭 如何使用
+1. Copy latest Released two programs in cctb-wpf.zip into root directory where .git directory are
+2. Execute cctb-wpf.exe
+3. Select dates that to commit, and set commit numbers
+4. Start commit
+
+### 🪦 发布
+Make sure you have total source code, and the `cctb-wpf` folder and `conconcon-tri-buter` folder are in same path<br>
+Use cmd or powershell and change directory to `cctb-wpf` folder<br>
+Execute:
+``` PS
+dotnet publish -r win-x64 -p:PublishSingleFile=true --self-contained false
+```
+Arguments for `-r` are same with Console Version part in this README.md
