@@ -207,13 +207,13 @@ dotnet publish -r win-x64 -p:PublishSingleFile=true --self-contained false
 ### ⚒️ Prerequisites
 Make sure your config is ready for conconcon-tri-buter.exe (Console Version) first, then Graphical Version
 
-### 🧭 如何使用
+### 🧭 How to use
 1. Copy latest Released two programs in cctb-wpf.zip into root directory where .git directory are
 2. Execute cctb-wpf.exe
 3. Select dates that to commit, and set commit numbers
 4. Start commit
 
-### 🪦 发布
+### 🪦 Publish
 Make sure you have total source code, and the `cctb-wpf` folder and `conconcon-tri-buter` folder are in same path<br>
 Use cmd or powershell and change directory to `cctb-wpf` folder<br>
 Execute:
