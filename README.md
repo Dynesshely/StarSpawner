@@ -19,7 +19,7 @@
 
 <p align="center">
   🌐 <a href="#-中文文档">中文</a> | <a href="#-english-docs">English</a><br>
-已与 🅱️ <a href="https://blog.catrol.cn/2022/02/07/save-your-github/" target="_blank">常青园晚 の 博客</a> 同步
+已与 🅱️ <a href="https://blog.catrol.cn/2022/02/07/save-your-github/" target="_blank">调皮豆干 の 博客</a> 同步
 </p>
 
 ------
@@ -181,7 +181,7 @@ The git commit command allows the use of the `--date` parameter to specify the c
 
 <p align="center">
   🌐 <a href="#%EF%B8%8F-图形版本中文文档">中文</a> | <a href="#%EF%B8%8F-graphical-english-docs">English</a><br>
-尚未与 🅱️ <a href="https://blog.catrol.cn/2022/02/07/save-your-github/" target="_blank">常青园晚 の 博客</a> 同步
+尚未与 🅱️ <a href="https://blog.catrol.cn/2022/02/07/save-your-github/" target="_blank">调皮豆干 の 博客</a> 同步
 </p>
 
 ## 🎞️ 图形版本中文文档
