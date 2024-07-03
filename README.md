@@ -26,10 +26,10 @@ Want to pretend to be awesome? Here you go!
 
 > The dense block generation in Figure 3 (lower left corner) below is the effect when the number of daily submissions is fixed in the specified interval (2015-6-14 to 2015-9-27) and the density is 0.7
 
-<p align="center"><img src="https://source.catrol.cn/img/blog-catrol/posts/save-your-github/contribution-graph.png" alt="Full with density Years are randomly generated (density: 0.1 ~ 0.3)"></img></p>
+<p align="center"><img src="https://img.catrol.cn/blog/posts/save-your-github/contribution-graph.png" alt="Full with density Years are randomly generated (density: 0.1 ~ 0.3)"></img></p>
 <p align="center">Full with density Years are randomly generated (density: 0.1 ~ 0.3)</p>
 
-<p align="center"><img src="https://source.catrol.cn/img/blog-catrol/posts/save-your-github/contribution-final-effect.png" alt="Mixed Band Random generation of density and year-round coverage generation without density"></img></p>
+<p align="center"><img src="https://img.catrol.cn/blog/posts/save-your-github/contribution-final-effect.png" alt="Mixed Band Random generation of density and year-round coverage generation without density"></img></p>
 <p align="center">Mixed Band Random generation of density and year-round coverage generation without density</p>
 
 ## What can it do
