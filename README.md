@@ -64,7 +64,7 @@ Options (macOS options are unknown, you can explore by yourself):
 ### Prerequisites
 
 1. Requires full git tool installation
-2. Make sure the terminal can use the git command
+2. Make sure that you can use the git command
 3. Make sure that the origin of the local repository has added the repository address of GitHub or other hosting platforms
 4. Make sure that the local key configuration is complete, you can push directly, otherwise please push manually
 
